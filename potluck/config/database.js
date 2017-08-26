@@ -7,7 +7,7 @@ mongoose.connection.once('open', () => {
 });
 
 mongoose.connection.once('error', (err) => {
-    console.log(`database error:\n${err}` )
+    console.log(`database error:\n${err}`)
 });
 
 module.exports = mongoose;
