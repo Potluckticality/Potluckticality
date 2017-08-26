@@ -4,21 +4,18 @@ body {
 }
 
 #background {
-  height: 600px;
-  background-image: url('./../images/dinner.jpg');
+  height: 650px;
+  background-image: url('./../images/favorite.jpg');
   background-repeat: no-repeat, repeat;
   background-size: cover;
-  filter: blur(1.5px);
+  filter: blur(1px);
 }
 
 nav {
-  background-color: #003366 !important;
+  background-color: #b0c4de !important;
+  opacity: .5;
 }
 
 a {
   color: #00B7FF;
 }
-
-/* body {
-  background-image: url("http://imgur.com/zi9Btiu");
-} */
