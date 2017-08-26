@@ -5,15 +5,10 @@ function index(req, res) {
 }
 
 function createEvent(req, res) {
-  
-    console.log('body', req.body);
     req.user.events.push(req.body);
-    console.log('events', req.user.events)
+    console.log(req.body);
     req.user.save(function(err) {
-        if (err) {
-            console.log('error, yo')
-            res.redirect('/events');
-        }
+        if (err) res.redirect('/');
         res.render('events/events', {user: req.user});
     });
 }
