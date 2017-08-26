@@ -4,9 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
 var cors = require('cors');
 var methodOverride = require('method-override');
 require('dotenv').config();
+require('./config/database');
+require('./config/passport');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -26,6 +30,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'Potluck',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
