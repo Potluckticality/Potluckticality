@@ -2,11 +2,54 @@
 
 <h1>Events</h1>
 
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Create Event 🎉</h4>
+      <div class="row">
+            <form action="/api/events/new" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="title" type="text" class="validate">
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="location" type="text" class="validate">
+                        <label for="location">Location</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="time" type="text" class="validate">
+                        <label for="time">Time</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="description" type="text" class="validate">
+                        <label for="description">Description</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
+    </div>
+  </div>
+
+
 <div id="all-events"></div>
+
 
 <script type="text/template" id="userTemplate">   
 
-    
+    <div id="event">
+    </div>
 
 </script>
 
