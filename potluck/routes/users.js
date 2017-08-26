@@ -7,12 +7,10 @@ function isLoggedIn(req, res, next) {
   res.redirect('/');
 }
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 router.get('/events', isLoggedIn, userCtrl.index);
 router.post('/events', isLoggedIn, userCtrl.createEvent);
+router.get('/events/id', isLoggedIn, userCtrl.showEvent);
+router.put('/events/id', isLoggedIn, userCtrl.updateEvent);
+router.delete('/events/id', isLoggedIn, userCtrl.deleteEvent);
 
 module.exports = router;
