@@ -2,10 +2,10 @@ var template;
 var isEditing = false;
 var holdValue = '';
 
-$.get('/api/events', function(data) {
-    template = _.template($('#user-template').html());
-    render(data);
-});
+// $.get('/api/events', function(data) {
+//     template = _.template($('#user-template').html());
+//     render(data);
+// });
 
 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
@@ -21,9 +21,9 @@ $(document).ready(function(){
       
 });
 
-function render(events) {
-    $('#all-events').html(template({events: events}));
-}
+// function render(events) {
+//     $('#all-events').html(template({events: events}));
+// }
 
 // function addEvent() {
 //     fetch('/api/events/new', {

@@ -7,6 +7,5 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get('/events', isLoggedIn, apiCtrl.index);
-router.post('/events/new', isLoggedIn, apiCtrl.create);
 
 module.exports = router;
