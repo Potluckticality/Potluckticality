@@ -1,6 +1,10 @@
 <%- include('./../_partials/header') %>
 
-<h1>Events</h1>
+<h4>Events</h4>
+<% user.events.forEach(function(event) { %>
+    <p><%= event.title%></p>
+<% }) %>
+
 
 <!-- Modal Trigger -->
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
@@ -9,38 +13,36 @@
     <div class="modal-content">
       <h4>Create Event 🎉</h4>
       <div class="row">
-            <form action="/api/events/new" method="POST" class="col s12">
+            <form action="/events" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="title" type="text" class="validate">
+                        <input id="title" type="text" name="title" class="validate">
                         <label for="title">Title</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="location" type="text" class="validate">
+                        <input id="location" type="text" name="location" class="validate">
                         <label for="location">Location</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="time" type="text" class="validate">
+                        <input id="time" type="text" name="time" class="validate">
                         <label for="time">Time</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="description" type="text" class="validate">
+                        <input id="description" type="text" name="description" class="validate">
                         <label for="description">Description</label>
                     </div>
                 </div>
+                
+                <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>      
             </form>
         </div>
     </div>
-    <div class="modal-footer">
-      <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
-    </div>
-  </div>
 
 
 <div id="all-events"></div>
@@ -49,11 +51,14 @@
 <script type="text/template" id="userTemplate">   
 
     <div id="event">
+
+        
+
     </div>
 
 </script>
 
-<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
 <script async defer type="text/javascript" src="./../javascripts/app.js"></script>  
 
 <%- include('./../_partials/footer') %>

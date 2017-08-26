@@ -16,14 +16,25 @@ function render(events) {
     $('#all-events').html(template({events: events}));
 }
 
-function addEvent() {
-    fetch('/api/events/new', {
-        method: 'POST',
-        headers: {'Content-type': 'application/json'},
-        credentials: 'include',
-        body: JSON.stringify({
-            text: $('#event').val()
-        })
-    }).then(res => res.json()).then(data => render(data.events)).then({events: $('#event').val('')});
-}
+// function addEvent() {
+//     fetch('/api/events/new', {
+//         method: 'POST',
+//         headers: {'Content-type': 'application/json'},
+//         credentials: 'include',
+//         body: JSON.stringify({
+//             text: $('#event').val()
+//         })
+//     }).then(res => res.json()).then(data => render(data.events)).then({events: $('#event').val('')});
+// }
+
+// document.getElementById('even').addEventListener('click', function() {
+//     $("#item").on('keypress blur', function(event) { 
+//         holdValue = $('#item').val();
+//         if (holdValue) {
+//             if (event.keyCode === 13) {
+//                 addToDo();
+//             }
+//         }
+//     });
+// });
 
