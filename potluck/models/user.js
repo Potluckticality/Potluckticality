@@ -3,10 +3,12 @@ const Schema = mongoose.Schema;
 
 require('dotenv').config();
 let eventSchema = new Schema({
-    name:{type:String},
-    location:{type:String},
-    time:{type:Date}
-})
+    name: String,
+    location: String,
+    time: Date
+}, {
+    timestamps: true
+});
 
 let userSchema = new Schema({
     name: String,

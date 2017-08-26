@@ -1,14 +1,9 @@
-var router=require('express').Router();
-var request = require('request');
-var User = require('./models/user');
+var User = require('../models/user');
 
+function index(req, res) {
+    res.render('events/events', {user: req.user});
+}
 
-
-
-
-
-
-
-module.exports= {
-
+module.exports = {
+    index
 }
