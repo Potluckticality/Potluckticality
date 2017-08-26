@@ -18,6 +18,7 @@ require('./config/passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
+var _ = require('underscore');
 
 var app = express();
 
