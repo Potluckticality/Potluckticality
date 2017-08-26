@@ -5,7 +5,8 @@ require('dotenv').config();
 let eventSchema = new Schema({
     name: String,
     location: String,
-    time: Date
+    time: Date,
+    description: String
 }, {
     timestamps: true
 });
