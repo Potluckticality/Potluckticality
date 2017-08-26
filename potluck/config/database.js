@@ -1,3 +1,4 @@
+require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
 mongoose.connect(process.env.DATABASE_URL)

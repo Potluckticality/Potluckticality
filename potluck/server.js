@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+
 var cors = require('cors');
 var methodOverride = require('method-override');
+
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
@@ -39,7 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
