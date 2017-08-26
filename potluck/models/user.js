@@ -6,7 +6,8 @@ let eventSchema = new Schema({
     name: String,
     location: String,
     time: Date,
-    description: String
+    description: String,
+    date:Date
 }, {
     timestamps: true
 });
