@@ -3,6 +3,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#background {
+  height: 600px;
+  background-image: url('./../images/dinner.jpg');
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  filter: blur(1.5px);
+}
+
 nav {
   background-color: #003366 !important;
 }
@@ -10,3 +18,7 @@ nav {
 a {
   color: #00B7FF;
 }
+
+/* body {
+  background-image: url("http://imgur.com/zi9Btiu");
+} */
