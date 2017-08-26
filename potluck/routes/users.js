@@ -13,5 +13,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/events', isLoggedIn, userCtrl.index);
+router.post('/events', isLoggedIn, userCtrl.createEvent);
 
 module.exports = router;
