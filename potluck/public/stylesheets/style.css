@@ -47,7 +47,9 @@ h5 {
 a {
   color: #00B7FF;
 }
-
+.custom-color {
+  background-color: rgb(156,176,208) !important;
+}
 .padding-events {
   margin-top:10px;
   margin-bottom:10px;

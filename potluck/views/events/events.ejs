@@ -3,88 +3,126 @@
     <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
 </div>
 <div class="half-container">
-    <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large waves-light modal-trigger" href="#modal1"><i class="material-icons">add</i></a></h2>
+    <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large waves-light modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
 </div>
 <div class="row">
     <div class="col s12 center-align">
         <% user.events.forEach(function(event) { %>
             <div class="col s3">
+                <!--this is the first card test-->
+                <!--<div class="card">
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a href="#test4">Test 1</a></li>
+                            <li class="tab"><a class="active" href="#test5">Test 2</a></li>
+                            <li class="tab"><a href="#test6">Test 3</a></li>
+                            <li class="tab"><a href="#test6">Test 3</a></li>
+                            <li class="tab"><a href="#test6">Test 3</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="test4">Test 1</div>
+                        <div id="test5">Test 2</div>
+                        <div id="test6"><a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></div>
+                    </div>
+                </div>-->
+
+this is the second card test for <%=event.id%>|<%=event._id%>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="http://i.imgur.com/3O21Cl1.jpg">
+                        <span class="card-title">Event 1</span>
+                        <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+                        </form>
+                        <!--<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>-->
+                        <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p><%=event.title%></p>
+                    </div>
+                </div>
+
+
+
                 <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></br>
-                photo shoud be below here
+
                 <img src="<%=event.photo%>" ></br>
-                above here
+
             </div>
         <% }) %>
     </div>
 </div>
-
-
+  
 
 <!-- Modal Trigger -->
 <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Create Event 🎉</h4>
         <div class="row">
-        <form action="/events" method="POST" class="col s12">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="title" type="text" name="title" class="validate">
-                    <label for="title">Title</label>
+            <form action="/events" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="title" type="text" name="title" class="validate">
+                        <label for="title">Title</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <select>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
-                        <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
-                        <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
-                        <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
-                        <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
-                    </select>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
+                            <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
+                            <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
+                            <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
+                            <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="location" type="text" name="location" class="validate">
-                    <label for="location">Location</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="location" type="text" name="location" class="validate">
+                        <label for="location">Location</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="time" type="text" name="time" class="timepicker">
-                    <label for="time">Time</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="time" type="text" name="time" class="timepicker">
+                        <label for="time">Time</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="date" type="Date" name="date" class="datepicker">
+                        <label for="date">Date</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="date" type="Date" name="date" class="datepicker">
-                    <label for="date">Date</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>File</span>
-                            <input type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" name="photo" type="text">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" name="photo" type="text">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="description" type="text" name="description" class="validate">
-                    <label for="description">Description</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="description" type="text" name="description" class="validate">
+                        <label for="description">Description</label>
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-waves">Create your event!</button>
-        </form>
+                <button type="submit" class="btn btn-waves">Create your event!</button>
+            </form>
+        </div>
     </div>
 </div>
-</div>
-
 
 <% user.events.forEach(function(event) { %>
     <div id="modal<%=event._id%>" class="modal modal-fixed-footer">
