@@ -39,11 +39,12 @@ nav {
   font-size: 3em;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
-
 h5 {
   color: white;
 }
-
+.center-modal-button {
+  margin-right:34%;
+}
 a {
   color: #00B7FF;
 }
