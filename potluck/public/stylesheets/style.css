@@ -5,11 +5,16 @@ body {
   background-image: url('./../images/favorite.jpg');
   background-repeat: no-repeat, repeat;
   background-size: cover;
-  font-family: Josefin Sans', sans-serif !important;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
-
+.half-container {
+  margin-left: 4%;
+}
 .brand-logo {
   padding-left: 10px !important;
+}
+.profile-photo {
+  border-radius:50%;
 }
 
 nav {
@@ -46,7 +51,9 @@ a {
 .padding-events {
   margin-top:10px;
   margin-bottom:10px;
-
+}
+.shadow {
+    text-shadow: 1px 1px darkslategray;
 }
 
 @keyframes animation_1 {
