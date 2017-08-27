@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col s12 center-align">
         <% user.events.forEach(function(event) { %>
-            <div class="col s3">
+            <div class="col s12 m6 l3">
                 <!--this is the first card test-->
                 <!--<div class="card">
                     <div class="card-content">
@@ -30,12 +30,10 @@
                     </div>
                 </div>-->
 
-this is the second card test for <%=event.id%>|<%=event._id%>
-
                 <div class="card">
                     <div class="card-image">
                         <img src="http://i.imgur.com/3O21Cl1.jpg">
-                        <span class="card-title">Event 1</span>
+                        <span class="card-title"><%=event.title%></span>
                         <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
                         </form>
@@ -49,10 +47,7 @@ this is the second card test for <%=event.id%>|<%=event._id%>
 
 
 
-                <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></br>
-
-                <img src="<%=event.photo%>" ></br>
-
+                <!--<a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></br>-->
             </div>
         <% }) %>
     </div>
@@ -187,7 +182,7 @@ this is the second card test for <%=event.id%>|<%=event._id%>
                         <div class="col s12">
                             <div class="col s12 m6 l6 center-align">
                                 <button type="submit"class="btn">UPDATE</button>
-                                </form>
+                </form>
                             </div>
                             <div class="col s12 m6 l6">
                                 <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="center-align">
