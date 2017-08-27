@@ -1,13 +1,19 @@
 <%- include('./../_partials/header') %>
 
 <h4>Events</h4>
-<% user.events.forEach(function(event) { %>
-    <a class="btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a>
-<% }) %>
+<div class="row">
+    <div class="col s12">
+        <% user.events.forEach(function(event) { %>
+            <div class="col s3">
+                <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a>
+            </div>
+        <% }) %>
+    </div>
+</div>
 
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
 
 <!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Create Event 🎉</h4>
@@ -46,47 +52,44 @@
     </div>
 </div>
 </div>
-<!--
+
 
 <% user.events.forEach(function(event) { %>
     <div id="modal<%=event._id%>" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h4>🎉<%=event.title%>🎉</h4>        
-        <div class="row">
-            <form action="/events?_method=DELETE" method="POST" class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label for="location">Location</label>
-                        <%= event.location%>
+        <div class="modal-content">
+            <h4>🎉<%=event.title%>🎉</h4>        
+            <div class="row">
+                <form action="/events?_method=DELETE" method="POST" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="location">Location</label>
+                            <%= event.location%>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label for="time">Time</label>
-                        <%= event.time%>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="time">Time</label>
+                            <%= event.time%>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label for="description">Description</label>
-                        <%= event.description%>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="description">Description</label>
+                            <%= event.description%>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label for="date">Date</label>
-                        <%= event.date%>
-                    </div>
-                </div>
-                <button type="submit">delete your event</button>                
-                <button type="submit">edit your event</button>
-            </form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="date">Date</label>
+                            <%= event.date%>
+                        </div>
+                    </div>               
+                    <button type="submit">edit your event</button>
+                </form>
+            </div>
         </div>
     </div>
-
-
-
-<% }) %>-->
+<% }) %>
 
 
 <div id="all-events"></div>
