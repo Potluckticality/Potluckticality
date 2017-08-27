@@ -1,5 +1,7 @@
 <%- include('./../_partials/header') %>
 
+<h6>Hi, <%= user.name %> <img src="<%= user.photo %>"></h6>
+
 <h4>Events</h4>
 <% user.events.forEach(function(event) { %>
     <p><%= event.title%></p>
