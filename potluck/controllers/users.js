@@ -29,15 +29,17 @@ function updateEvent(req, res) {
 
     req.user.save(function(err) {
         if (err) res.redirect('/events');
-        return res.render('events/events');
+        return res.render('events/events', {user:req.user});
     });
 }
 
 function deleteEvent(req, res) {
+    console.log('req id', req.user.events)
+    console.log('event id', req.user.events.id)
     req.user.events.remove(req.params.id);
     req.user.save(function(err) {
         if (err) res.redirect('/events');
-        return res.render('events/events')
+        return res.render('events/events', {user:req.user})
     })
 }
 

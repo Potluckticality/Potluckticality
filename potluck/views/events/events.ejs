@@ -14,7 +14,7 @@
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
 
 <!-- Modal Trigger -->
-  <div id="modal1" class="modal modal-fixed-footer">
+<div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Create Event 🎉</h4>
         <div class="row">
@@ -23,6 +23,18 @@
                 <div class="input-field col s12">
                     <input id="title" type="text" name="title" class="validate">
                     <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
+                        <option value="potluck" data-icon="images/office.jpg" class="circle">Potluck</option>
+                        <option value="baby-shower" data-icon="images/yuna.jpg" class="circle">Baby Shower</option>
+                        <option value="holiday-party" data-icon="images/yuna.jpg" class="circle">Holiday Party</option>
+                        <option value="other" data-icon="images/yuna.jpg" class="circle">Other</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -47,7 +59,7 @@
                     <label for="description">Description</label>
                 </div>
             </div>
-            <button type="submit">Create your event!</button>
+            <button type="submit" class="btn btn-waves">Create your event!</button>
         </form>
     </div>
 </div>
@@ -59,33 +71,48 @@
         <div class="modal-content">
             <h4>🎉<%=event.title%>🎉</h4>        
             <div class="row">
-                <form action="/events?_method=DELETE" method="POST" class="col s12">
+                <form action="/events/<%= event.id %>?_method=PUT" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
+                            <input id="title" type="text" name="title" class="validate" value="<%=event.title%>">
+                            <label for="title">Title</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="location" type="text" name="location" class="validate" value="<%=event.location%>">
                             <label for="location">Location</label>
-                            <%= event.location%>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
+                            <input id="time" type="text" name="time" class="timepicker" value="<%=event.time%>">
                             <label for="time">Time</label>
-                            <%= event.time%>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <label for="description">Description</label>
-                            <%= event.description%>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
+                            <input id="date" type="Date" name="date" class="datepicker" value="<%=event.date%>">
                             <label for="date">Date</label>
-                            <%= event.date%>
                         </div>
-                    </div>               
-                    <button type="submit">edit your event</button>
-                </form>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="description" type="text" name="description" class="validate" value="<%=event.description%>">
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12 m6 l6 center-align">
+                                <button type="submit"class="btn">UPDATE</button>
+                                </form>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="center-align">
+                                    <button type="submit" class="btn red right">DELETE</button>
+                                </form>
+                            </div>
+                        </div>    
+                    </div>        
             </div>
         </div>
     </div>

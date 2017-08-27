@@ -25,3 +25,7 @@ a {
   margin-bottom:10px;
 
 }
+
+@keyframes animation_1 {
+  0%, 55.5555555555556% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1); opacity: 0; animation-timing-function:ease-in-out} 100% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,20,0,1); opacity:1;}
+}

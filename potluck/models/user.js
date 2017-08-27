@@ -8,7 +8,8 @@ let eventSchema = new Schema({
     location: String,
     time: String,
     description: String,
-    date: Date
+    date: Date,
+    category:String,
 }, {
     timestamps: true
 });
