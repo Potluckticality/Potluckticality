@@ -3,65 +3,100 @@
 <h6>Hi, <%= user.name %> <img src="<%= user.photo %>"></h6>
 
 <h4>Events</h4>
+<div class="row">
+    <div class="col s12">
+        <% user.events.forEach(function(event) { %>
+            <div class="col s3">
+                <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+
+<!-- Modal Trigger -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Create Event 🎉</h4>
+        <div class="row">
+        <form action="/events" method="POST" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" type="text" name="title" class="validate">
+                    <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="location" type="text" name="location" class="validate">
+                    <label for="location">Location</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="time" type="text" name="time" class="timepicker">
+                    <label for="time">Time</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="date" type="Date" name="date" class="datepicker">
+                    <label for="date">Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="description" type="text" name="description" class="validate">
+                    <label for="description">Description</label>
+                </div>
+            </div>
+            <button type="submit">Create your event!</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
 <% user.events.forEach(function(event) { %>
-    <p><%= event.title%></p>
+    <div id="modal<%=event._id%>" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>🎉<%=event.title%>🎉</h4>        
+            <div class="row">
+                <form action="/events?_method=DELETE" method="POST" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="location">Location</label>
+                            <%= event.location%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="time">Time</label>
+                            <%= event.time%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="description">Description</label>
+                            <%= event.description%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="date">Date</label>
+                            <%= event.date%>
+                        </div>
+                    </div>               
+                    <button type="submit">edit your event</button>
+                </form>
+            </div>
+        </div>
+    </div>
 <% }) %>
 
 
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Create Event 🎉</h4>
-      <div class="row">
-            <form action="/events" method="POST" class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="title" type="text" name="title" class="validate">
-                        <label for="title">Title</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="location" type="text" name="location" class="validate">
-                        <label for="location">Location</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="time" type="text" name="time" class="timepicker">
-                        <label for="time">Time</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="description" type="text" name="description" class="validate">
-                        <label for="description">Description</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="date" type="Date" name="date" class="datepicker">
-                        <label for="date">Date</label>
-                    </div>
-                </div>
-                <button type="submit">Create your event!</button>
-            </form>
-        </div>
-    </div>
-
-
 <div id="all-events"></div>
-
-
 <script type="text/template" id="userTemplate">   
-
-    <div id="event">
-
-        
-
-    </div>
-
+    <div id="event"></div>
 </script>
 
 
