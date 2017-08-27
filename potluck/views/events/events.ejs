@@ -80,6 +80,18 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
+                            <select value="<%=event.category%>">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
+                                <option value="potluck" data-icon="images/office.jpg" class="circle">Potluck</option>
+                                <option value="baby-shower" data-icon="images/yuna.jpg" class="circle">Baby Shower</option>
+                                <option value="holiday-party" data-icon="images/yuna.jpg" class="circle">Holiday Party</option>
+                                <option value="other" data-icon="images/yuna.jpg" class="circle">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
                             <input id="location" type="text" name="location" class="validate" value="<%=event.location%>">
                             <label for="location">Location</label>
                         </div>
