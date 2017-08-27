@@ -14,14 +14,25 @@
     <body>
         <nav>
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo left">Potluckticality</a>
-                <ul id="nav-mobile" class="right hide-on-sm-and-down">
-                <li><a href="/events">My Events</a></li>
-                <% if (user) { %>
-                    <li><a href="/logout">Logout</a></li>
-                <% } else { %>
-                    <li><a href="/auth/google">Login</a></li>
-                <% } %>
-                </ul>
+                <a href="/" class="brand-logo left">Potluckticality</a>                
+                    <a href="#" data-activates="mobile" class="button-collapse hide-on-med-and-up right"><i class="material-icons icon-black">menu</i></a>
+                    <ul id="nav-mobile" class="hide-on-small-and-down right">
+                        <% if (user) { %>                        
+                            <li><a href="/events">My Events</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile">
+                            <li><a href="/events">My Events</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                    </ul>
+                        <% } else { %>
+                            <!--<li><a href="/events">My Events</a></li>-->
+                            <li><a href="/auth/google">Login</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile">
+                            <!--<li><a href="/events">My Events</a></li>-->
+                            <li><a href="/auth/google">Login</a></li>
+                        <% } %>
+                    </ul>
             </div>
         </nav>
