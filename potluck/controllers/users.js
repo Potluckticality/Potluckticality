@@ -26,16 +26,15 @@ function updateEvent(req, res) {
     event.time = req.body.time;
     event.description = req.body.description;
     event.date = req.body.date;
-
+    event.photo = req.body.photo;
     req.user.save(function(err) {
+        console.log(req.user.events)
         if (err) res.redirect('/events');
         return res.render('events/events', {user:req.user});
     });
 }
 
 function deleteEvent(req, res) {
-    console.log('req id', req.user.events)
-    console.log('event id', req.user.events.id)
     req.user.events.remove(req.params.id);
     req.user.save(function(err) {
         if (err) res.redirect('/events');

@@ -1,13 +1,16 @@
 <%- include('./../_partials/header') %>
 
-<h6>Hi, <%= user.name %> <img src="<%= user.photo %>"></h6>
+<h6><img src="<%= user.photo %>"> Welcome, <%= user.name %> </h6>
 
 <h4>Events</h4>
 <div class="row">
-    <div class="col s12">
+    <div class="col s12 center-align">
         <% user.events.forEach(function(event) { %>
             <div class="col s3">
-                <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a>
+                <a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></br>
+                photo shoud be below here
+                <img src="<%=event.photo%>" ></br>
+                above here
             </div>
         <% }) %>
     </div>
@@ -32,10 +35,10 @@
                     <select>
                         <option value="" disabled selected>Choose your option</option>
                         <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
-                        <option value="potluck" data-icon="images/office.jpg" class="circle">Potluck</option>
-                        <option value="baby-shower" data-icon="images/yuna.jpg" class="circle">Baby Shower</option>
-                        <option value="holiday-party" data-icon="images/yuna.jpg" class="circle">Holiday Party</option>
-                        <option value="other" data-icon="images/yuna.jpg" class="circle">Other</option>
+                        <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
+                        <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
+                        <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
+                        <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                     </select>
                 </div>
             </div>
@@ -53,6 +56,19 @@
                 <div class="input-field col s6">
                     <input id="date" type="Date" name="date" class="datepicker">
                     <label for="date">Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" name="photo" type="text">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -82,13 +98,13 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <select value="<%=event.category%>">
-                                <option value="" disabled selected>Choose your option</option>
+                            <select name="category" default=<%=event.category%>
+                                <option disabled selected>Choose your option</option>
                                 <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
-                                <option value="potluck" data-icon="images/office.jpg" class="circle">Potluck</option>
-                                <option value="baby-shower" data-icon="images/yuna.jpg" class="circle">Baby Shower</option>
-                                <option value="holiday-party" data-icon="images/yuna.jpg" class="circle">Holiday Party</option>
-                                <option value="other" data-icon="images/yuna.jpg" class="circle">Other</option>
+                                <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
+                                <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
+                                <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
+                                <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                             </select>
                         </div>
                     </div>
@@ -104,10 +120,23 @@
                             <label for="time">Time</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="date" type="Date" name="date" class="datepicker" value="<%=event.date%>">
+                            <input id="date" type="text" name="date" class="datepicker" value="<%=event.date.toDateString()%>">
                             <label for="date">Date</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input type="file" value=<%=event.photo%>>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" name="photo" type="text" value=<%=event.photo%>>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="description" type="text" name="description" class="validate" value="<%=event.description%>">

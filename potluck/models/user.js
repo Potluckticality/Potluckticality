@@ -10,6 +10,7 @@ let eventSchema = new Schema({
     description: String,
     date: Date,
     category:String,
+    photo:String
 }, {
     timestamps: true
 });
