@@ -1,63 +1,73 @@
 <%- include('./../_partials/header') %>
-<div class="container valign-wrapper">
-    <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
-</div>
-<div class="half-container">
-    <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
-</div>
-<div class="row">
-    <div class="col s12 center-align">
-        <% user.events.forEach(function(event) { %>
-            <div class="col s12 m6 l3">
-                <!--this is the first card test-->
-                <!--<div class="card">
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-tabs">
-                        <ul class="tabs tabs-fixed-width">
-                            <li class="tab"><a href="#test4">Test 1</a></li>
-                            <li class="tab"><a class="active" href="#test5">Test 2</a></li>
-                            <li class="tab"><a href="#test6">Test 3</a></li>
-                            <li class="tab"><a href="#test6">Test 3</a></li>
-                            <li class="tab"><a href="#test6">Test 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-content grey lighten-4">
-                        <div id="test4">Test 1</div>
-                        <div id="test5">Test 2</div>
-                        <div id="test6"><a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></div>
-                    </div>
-                </div>-->
+<div class="blur">
 
-<!--this is the card that shows, has a update, show and delete button-->
-                <div class="card">
-                    <div class="card-image">
-                        <% if (event.category === "birthday") { %>
-                            <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
-                        <% } else if (event.category === "baby-shower") { %>
-                            <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
-                        <% } else if (event.category === "potluck") { %>
-                            <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
-                        <% } else if (event.category === "holiday-party") { %>
-                            <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
-                        <% } else { %>
-                            <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
-                        <% } %>
-                        <span class="card-title"><%=event.title%></span>
-                        <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
-                        </form>
-                        <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
-                        <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
+    <div class="welcome">
+        <div class="container valign-wrapper">
+            <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
+        </div>
+        
+        <div class="half-container">
+            <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="blur">
+    <div class="row">
+        <div class="col s12 center-align">
+            <% user.events.forEach(function(event) { %>
+                <div class="col s12 m6 l3">
+                    <!--this is the first card test-->
+                    <!--<div class="card">
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-tabs">
+                            <ul class="tabs tabs-fixed-width">
+                                <li class="tab"><a href="#test4">Test 1</a></li>
+                                <li class="tab"><a class="active" href="#test5">Test 2</a></li>
+                                <li class="tab"><a href="#test6">Test 3</a></li>
+                                <li class="tab"><a href="#test6">Test 3</a></li>
+                                <li class="tab"><a href="#test6">Test 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-content grey lighten-4">
+                            <div id="test4">Test 1</div>
+                            <div id="test5">Test 2</div>
+                            <div id="test6"><a class="padding-events btn modal-trigger" href="#modal<%=event._id%>"><%=event.title%></a></div>
+                        </div>
+                    </div>-->
+
+    <!--this is the card that shows, has a update, show and delete button-->
+                    <div class="card">
+                        <div class="card-image">
+                            <% if (event.category === "birthday") { %>
+                                <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
+                            <% } else if (event.category === "baby-shower") { %>
+                                <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
+                            <% } else if (event.category === "potluck") { %>
+                                <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
+                            <% } else if (event.category === "holiday-party") { %>
+                                <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
+                            <% } else { %>
+                                <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
+                            <% } %>
+                            <span class="card-title"><%=event.title%></span>
+                            <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+                            </form>
+                            <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
+                            <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p><%=event.title%></p>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p><%=event.title%></p>
-                    </div>
+                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light">Send your invite!</a>
                 </div>
-                <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light">Send your invite!</a>
-            </div>
-        <% }) %>
+            <% }) %>
+        </div>
     </div>
 </div>
   

@@ -14,13 +14,17 @@
     "ejs": "~2.5.6",
     "express": "~4.15.2",
     "express-session": "^1.15.5",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^21.3.0",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.8",
     "morgan": "~1.8.1",
+    "nodemailer": "^4.1.0",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "serve-favicon": "~2.4.2",
     "underscore": "^1.8.3",
-    "underscore-node": "^0.1.2"
+    "underscore-node": "^0.1.2",
+    "xoauth2": "^1.2.0"
   }
 }
