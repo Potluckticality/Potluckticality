@@ -45,6 +45,10 @@ h5 {
 .center-modal-button {
   margin-right:34%;
 }
+.card-image-resize {
+  height: 250px;
+  width:250px;
+}
 a {
   color: #00B7FF;
 }

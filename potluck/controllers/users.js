@@ -27,6 +27,7 @@ function updateEvent(req, res) {
     event.description = req.body.description;
     event.date = req.body.date;
     event.photo = req.body.photo;
+    event.category = req.body.category;
     req.user.save(function(err) {
         console.log(req.user.events)
         if (err) res.redirect('/events');

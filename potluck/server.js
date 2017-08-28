@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var _ = require('underscore');
+var mailer = require('express-mailer');
 
 var cors = require('cors');
 var methodOverride = require('method-override');
