@@ -13,5 +13,6 @@ router.get('/events/:id', isLoggedIn, userCtrl.showEvent);
 router.put('/events/:id', isLoggedIn, userCtrl.updateEvent);
 router.delete('/events/:id', isLoggedIn, userCtrl.deleteEvent);
 router.get('/events/:id/mail', isLoggedIn, userCtrl.prepEmail);
+router.get('/events/:id/mail/send', isLoggedIn, userCtrl.sendEmail);
 
 module.exports = router;

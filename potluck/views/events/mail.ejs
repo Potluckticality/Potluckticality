@@ -1,13 +1,13 @@
-<%- include(./../partials/header)%>
+<%- include('./../_partials/header') %>
+
 
 <div id="container">
-    Node.JS Email application
     <div>
-        <h1>Mailer In Node.JS</h1>
-        <input id="to" type="text" placeholder="Enter E-mail ID where you want to send" />
-        <input id="subject" type="text" placeholder="Write Subject" />
-        <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
-        <button id="send_email">Send Email</button>
+        <h1>Send Your Invitations</h1>
+        <input id="to" type="text" name="email" placeholder="Enter E-mail ID where you want to send" />
+        <input id="subject" type="text" placeholder="Write Subject" name="subject"/>
+        <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send" name="content"></textarea>
+        <a href="/events/<%=event%>/mail/send" class="btn">Send Email</a>
         <span id="message"></span>
     </div>
 </div>
@@ -16,5 +16,25 @@
 
 
 
+<!--<script>
+$(document).ready(function() {
+    let from,to,subject,text;
+    $('#send_email').click(function() {
+        to=$('#to').val();
+        subject=$('#subject').val();
+        text=$('#content').val();
+        $('#message').text('Sending email..');
+        $.get('http://localhost:3000/events/<%=event%>/mail/send',{to:to,subject:subject,text:text}, function(data) {
+            if (data === 'sent') {
+                $('#message').empty().html(`email has been sent to ${to}. Please check inbox`)
+            };
+        });
+    });
+})
+</script>-->
 
-<%- include(./../partials/footer)%>
+
+
+
+
+<%- include('./../_partials/footer')%>

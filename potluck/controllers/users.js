@@ -1,5 +1,6 @@
 var User = require('../models/user');
 
+
 function index(req, res) {
     res.render('events/events', {user: req.user});
 }
@@ -44,12 +45,24 @@ function deleteEvent(req, res) {
 }
 
 function sendEmail(req,res) {
-
+    var mailOptions={
+        to : req.query.to,
+        subject : req.query.subject,
+        text : req.query.text
+    }
+    console.log('hitting this path');
+    transporter.sendMail(mailOptions, function(err, info){
+        if(err){
+            return console.log(err);
+        } 
+        console.log("Message %s sent: %s", info.response, info.message);
+        res.redirect("/events");
+    });
 }
 
 function prepEmail(req,res) {
-    console.log('hitting this path to start email')
-    return res.render('events/mail', {user:req.user})
+    console.log(req.params)
+    return res.render('events/mail', {user:req.user, event:req.params.id})
 }
 
 module.exports = {
