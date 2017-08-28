@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var transporter = require('./../config/mail')
 
 
 function index(req, res) {
@@ -46,14 +47,17 @@ function deleteEvent(req, res) {
 
 function sendEmail(req,res) {
     var mailOptions={
-        to : req.query.to,
-        subject : req.query.subject,
-        text : req.query.text
+        from: req.user.email,
+        to: "arkauffma@gmail.com",
+        subject : "Hey",
+        text : "hihi",
+        html:'<h1>This is a test</h1>'
     }
-    console.log('hitting this path');
+
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
-            return console.log(err);
+             console.log(err);;
+            
         } 
         console.log("Message %s sent: %s", info.response, info.message);
         res.redirect("/events");

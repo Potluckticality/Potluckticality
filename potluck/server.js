@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var _ = require('underscore');
-var nodeMailer = require('nodemailer');
 
 var cors = require('cors');
 var methodOverride = require('method-override');
@@ -15,22 +14,13 @@ var methodOverride = require('method-override');
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
-
+require('./config/mail.js');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
-var transporter = nodeMailer.createTransport({
-    service:'Gmail',
-    // host: "smtp.gmail.com",
-    // port:465,
-    // secure:true,
-    auth: {
-        user: process.env.GOOGLE_EMAIL,
-        pass: process.env.GOOGLE_EMAIL_PS
-    }
-});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -75,4 +65,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = app

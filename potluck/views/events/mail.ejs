@@ -7,7 +7,7 @@
         <input id="to" type="text" name="email" placeholder="Enter E-mail ID where you want to send" />
         <input id="subject" type="text" placeholder="Write Subject" name="subject"/>
         <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send" name="content"></textarea>
-        <a href="/events/<%=event%>/mail/send" class="btn">Send Email</a>
+        <a href="/events/<%=event%>/mail/send" class="btn" id="send_email">Send Email</a>
         <span id="message"></span>
     </div>
 </div>
@@ -16,7 +16,7 @@
 
 
 
-<!--<script>
+<script>
 $(document).ready(function() {
     let from,to,subject,text;
     $('#send_email').click(function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
         });
     });
 })
-</script>-->
+</script>
 
 
 
