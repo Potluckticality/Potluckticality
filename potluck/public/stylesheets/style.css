@@ -1,20 +1,23 @@
 body {
   margin: 0 auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  height: 650px;
+  height: 700px;
   background-image: url('./../images/favorite.jpg');
-  background-repeat: no-repeat, repeat;
+  background-repeat: repeat;
   background-size: cover;
   font-family: 'Josefin Sans', sans-serif !important;
 }
+
 .half-container {
   margin-left: 4%;
 }
+
 .brand-logo {
   padding-left: 10px !important;
 }
+
 .profile-photo {
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 nav {
@@ -24,6 +27,15 @@ nav {
 
 #welcome-message {
   align-content: center;
+}
+
+.welcome {
+  padding: 18px;
+}
+
+i.small {
+  font-size: 1.3rem !important;
+  float: left;
 }
 
 .blur {
@@ -37,28 +49,36 @@ nav {
   text-align: center;
   font-weight: normal;
   font-size: 3em;
+  padding-bottom: 100px;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
+
 h5 {
   color: white;
 }
+
 .center-modal-button {
   margin-right:34%;
 }
+
 .card-image-resize {
   height: 250px;
   width:250px;
 }
+
 a {
   color: #00B7FF;
 }
+
 .custom-color {
   background-color: rgb(156,176,208) !important;
 }
+
 .padding-events {
   margin-top:10px;
   margin-bottom:10px;
 }
+
 .shadow {
     text-shadow: 1px 1px darkslategray;
 }
