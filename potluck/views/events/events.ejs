@@ -3,7 +3,7 @@
     <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
 </div>
 <div class="half-container">
-    <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large waves-light modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
+    <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
 </div>
 <div class="row">
     <div class="col s12 center-align">
@@ -55,6 +55,7 @@
                         <p><%=event.title%></p>
                     </div>
                 </div>
+                <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light">Send your invite!</a>
             </div>
         <% }) %>
     </div>

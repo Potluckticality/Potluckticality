@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var _ = require('underscore');
-var mailer = require('express-mailer');
+var nodeMailer = require('nodemailer');
 
 var cors = require('cors');
 var methodOverride = require('method-override');
@@ -19,7 +19,6 @@ require('./config/passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
-var _ = require('underscore');
 
 var app = express();
 

@@ -43,11 +43,21 @@ function deleteEvent(req, res) {
     })
 }
 
+function sendEmail(req,res) {
+
+}
+
+function prepEmail(req,res) {
+    console.log('hitting this path to start email')
+    return res.render('events/mail', {user:req.user})
+}
 
 module.exports = {
     index,
     createEvent,
     showEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
+    sendEmail,
+    prepEmail
 }
