@@ -26,16 +26,16 @@ function updateEvent(req, res) {
     event.time = req.body.time;
     event.description = req.body.description;
     event.date = req.body.date;
-
+    event.photo = req.body.photo;
+    event.category = req.body.category;
     req.user.save(function(err) {
+        console.log(req.user.events)
         if (err) res.redirect('/events');
         return res.render('events/events', {user:req.user});
     });
 }
 
 function deleteEvent(req, res) {
-    console.log('req id', req.user.events)
-    console.log('event id', req.user.events.id)
     req.user.events.remove(req.params.id);
     req.user.save(function(err) {
         if (err) res.redirect('/events');
@@ -43,11 +43,21 @@ function deleteEvent(req, res) {
     })
 }
 
+function sendEmail(req,res) {
+
+}
+
+function prepEmail(req,res) {
+    console.log('hitting this path to start email')
+    return res.render('events/mail', {user:req.user})
+}
 
 module.exports = {
     index,
     createEvent,
     showEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
+    sendEmail,
+    prepEmail
 }

@@ -11,6 +11,7 @@ $(document).ready(function(){
     $('select').material_select();
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
+
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -19,6 +20,7 @@ $(document).ready(function(){
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
   });
+
   $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'
     fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
@@ -30,8 +32,10 @@ $(document).ready(function(){
     ampmclickable: true, // make AM PM clickable
     aftershow: function(){} //Function for after opening timepicker
   });
-      
-      
+
+  $('.materialboxed').materialbox();
+  
+  $(".button-collapse").sideNav();  
 });
       
 

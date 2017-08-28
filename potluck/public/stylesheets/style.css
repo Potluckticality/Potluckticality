@@ -5,11 +5,16 @@ body {
   background-image: url('./../images/favorite.jpg');
   background-repeat: no-repeat, repeat;
   background-size: cover;
-  font-family: Josefin Sans', sans-serif !important;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
-
+.half-container {
+  margin-left: 4%;
+}
 .brand-logo {
   padding-left: 10px !important;
+}
+.profile-photo {
+  border-radius:50%;
 }
 
 nav {
@@ -34,19 +39,28 @@ nav {
   font-size: 3em;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
-
 h5 {
   color: white;
 }
-
+.center-modal-button {
+  margin-right:34%;
+}
+.card-image-resize {
+  height: 250px;
+  width:250px;
+}
 a {
   color: #00B7FF;
 }
-
+.custom-color {
+  background-color: rgb(156,176,208) !important;
+}
 .padding-events {
   margin-top:10px;
   margin-bottom:10px;
-
+}
+.shadow {
+    text-shadow: 1px 1px darkslategray;
 }
 
 @keyframes animation_1 {
