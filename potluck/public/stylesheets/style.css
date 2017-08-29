@@ -33,6 +33,10 @@ nav {
   align-content: center;
 }
 
+label {
+  color: white !important;
+}
+
 .welcome {
   padding: 18px;
 }
@@ -41,30 +45,44 @@ i.small {
   font-size: 1.3rem !important;
   float: left;
 }
-.blur {
+
+.blur-one {
   margin: 0 auto !important;
   display: flex;
-  align-items: center;
-  /* width: 300px;
-  height: 300px; */
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
   font-weight: normal;
   font-size: 3em;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
+
+.blur-two {
+  margin: 0 auto !important;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-weight: normal;
+  font-size: 3em;
+  padding-bottom: 160px;
+  -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
+}
+
 h5 {
   color: white;
 }
+
 .center-modal-button {
   margin-right:34%;
 }
+
 .card-image-resize {
   height: 250px;
   width:250px;
 }
+
 a {
   color: #00B7FF;
 }

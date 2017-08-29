@@ -1,46 +1,50 @@
 <%- include('./../_partials/header') %>
 
+        <div class="blur-one">
+            <div class="welcome">
+                <h5>Send Your Invitations</h5>
+                <hr>
+            </div>
+        </div>
 
-<div id="container">
-    <div>
-        <h1>Send Your Invitations</h1>
+        <div class="blur-two">
         
-        <form action="/events/<%=event%>/mail/send" method="post">   
-            <input type="text" name="to" placeholder="Enter E-mail ID where you want to send" />
-            <input type="text" name="cc" placeholder="Enter E-mail ID where you want to cc" />
+            <form action="/events/<%=event%>/mail/send" method="post" class="col s12"> 
+                <div class="container">  
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2">
+                            <input type="text" name="to" />
+                            <label>Send To</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2">
+                            <input type="text" name="cc" />
+                            <label>CC</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2">
+                            <input type="text" name="subject" />
+                            <label>Subject</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2">
+                            <input type="text" name="text" />
+                            <label>Message</label>
+                        </div>
+                    </div>
+            
+                    <button class="btn" type="submit">Send Email</button>
+            </div>
 
-            <input type="text" placeholder="Write Subject" name="subject" />
-            <textarea cols="40" rows="5" placeholder="Write what you want to send" name="text"></textarea>
-            <button class="btn" type="submit">Send Email</button>
-            <!--<span id="message"></span>-->
-        </form>
-        
+            
+            <!-- <input type="text" name="cc" placeholder="Enter E-mail ID where you want to cc" /> -->
+
+            <!-- <input type="text" placeholder="Write Subject" name="subject" /> -->
+            <!-- <textarea cols="40" rows="5" placeholder="Write what you want to send" name="text"></textarea> -->
+        </form>  
     </div>
-</div>
-
-
-
-
-
-<!--<script>
-$(document).ready(function() {
-    let from,to,subject,text;
-    $('#send_email').click(function() {
-        to=$('#to').val();
-        subject=$('#subject').val();
-        text=$('#content').val();
-        $('#message').text('Sending email..');
-        $.get('http://localhost:3000/events/<%=event%>/mail/send',{to:to,subject:subject,text:text}, function(data) {
-            if (data === 'sent') {
-                $('#message').empty().html(`email has been sent to ${to}. Please check inbox`)
-            };
-        });
-    });
-})
-</script>-->
-
-
-
-
 
 <%- include('./../_partials/footer')%>

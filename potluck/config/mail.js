@@ -3,8 +3,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service:'Gmail',
     host: "smtp.gmail.com",
-    port:465,
-    secure:true,
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.GOOGLE_EMAIL,
         pass: process.env.GOOGLE_EMAIL_PS
@@ -12,5 +12,4 @@ var transporter = nodemailer.createTransport({
 });
 
 
-module.exports =  transporter
-
+module.exports = transporter;

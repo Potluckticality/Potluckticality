@@ -1,132 +1,60 @@
 <%- include('./../_partials/header') %>
-<div class="blur">
-
-    <div class="welcome">
-        <div class="container valign-wrapper">
-            <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
+    <div class="blur-one">
+        <div class="welcome">
+            <h5>Create Event &nbsp;&nbsp;
+            <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
+                href="#modal1"><i class="material-icons">add</i>
+            </a></h5>
+            <hr>
         </div>
-        
-        <div class="half-container">
-            <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
-        </div>
-        <hr>
     </div>
-</div>
 
-<div class="blur">
-    <div class="row">
-        <div class="col s12 center-align">
-            <% user.events.forEach(function(event) { %>
-                <div class="col s12 m6 l3">
-
-    <!--this is the card that shows, has a update, show and delete button-->
-                    <div class="card">
-                        <div class="card-image">
-                            <% if (event.category === "birthday") { %>
-                                <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
-                            <% } else if (event.category === "baby-shower") { %>
-                                <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
-                            <% } else if (event.category === "potluck") { %>
-                                <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
-                            <% } else if (event.category === "holiday-party") { %>
-                                <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
-                            <% } else { %>
-                                <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
-                            <% } %>
-                            <span class="card-title"><%=event.title%></span>
-                            <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
-                            </form>
-                            <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
-                            <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
-                        </div>
-                        <div class="card-content">
-                            <p><%=event.title%></p>
-                        </div>
-                    </div>
-                <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light custom-color">Send your invite!</a>
-            </div>
-        <% }) %>
-    </div>
-</div>
-  
-
-<!-- Modal Trigger -->
-<!--this is the create/new modal-->
-<div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h4>Create Event 🎉</h4>
+    <div class="blur-two">
         <div class="row">
-            <form action="/events" method="POST" class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="title" type="text" name="title" class="validate">
-                        <label for="title">Title</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <select name ="category"> 
-                            <option disabled selected>Choose your option</option>
-                            <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
-                            <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
-                            <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
-                            <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
-                            <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="location" type="text" name="location" class="validate">
-                        <label for="location">Location</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="time" type="text" name="time" class="timepicker">
-                        <label for="time">Time</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="date" type="Date" name="date" class="datepicker">
-                        <label for="date">Date</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>File</span>
-                                <input type="file">
+            <div class="col s12 center-align">
+                <% user.events.forEach(function(event) { %>
+                    <div class="col s12 m6 l3">
+
+                        <!--this is the card that shows, has a update, show and delete button-->
+                        <div class="card">
+                            <div class="card-image">
+                                <% if (event.category === "birthday") { %>
+                                    <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
+                                <% } else if (event.category === "baby-shower") { %>
+                                    <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
+                                <% } else if (event.category === "potluck") { %>
+                                    <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
+                                <% } else if (event.category === "holiday-party") { %>
+                                    <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
+                                <% } else { %>
+                                    <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
+                                <% } %>
+                                <span class="card-title"><%=event.title%></span>
+                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+                                </form>
+                                <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
+                                <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
                             </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" name="photo" type="text">
+                            <div class="card-content">
+                                <p><%=event.title%></p>
                             </div>
                         </div>
-                    </div>
+                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light custom-color">Send your invite!</a>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="description" type="text" name="description" class="validate">
-                        <label for="description">Description</label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-waves">Create your event!</button>
-            </form>
+            <% }) %>
         </div>
     </div>
-</div>
-
-<!--this is the update modal-->
-<% user.events.forEach(function(event) { %>
-    <div id="modal<%=event._id%>" class="modal modal-fixed-footer">
+    
+    <!--this is the create/new modal-->
+    <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4>🎉<%=event.title%>🎉</h4>        
+            <h4>Create Event 🎉</h4>
             <div class="row">
-                <form action="/events/<%= event.id %>?_method=PUT" method="POST" class="col s12">
+                <form action="/events" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="title" type="text" name="title" class="validate" value="<%=event.title%>">
+                            <input id="title" type="text" name="title" class="validate">
                             <label for="title">Title</label>
                         </div>
                     </div>
@@ -144,52 +72,118 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="location" type="text" name="location" class="validate" value="<%=event.location%>">
+                            <input id="location" type="text" name="location" class="validate">
                             <label for="location">Location</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="time" type="text" name="time" class="timepicker" value="<%=event.time%>">
+                            <input id="time" type="text" name="time" class="timepicker">
                             <label for="time">Time</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="date" type="text" name="date" class="datepicker" value="<%=event.date.toDateString()%>">
+                            <input id="date" type="Date" name="date" class="datepicker">
                             <label for="date">Date</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>File</span>
-                                        <input type="file" value=<%=event.photo%>>
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" name="photo" type="text" value=<%=event.photo%>>
-                                    </div>
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" name="photo" type="text">
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="description" type="text" name="description" class="validate" value="<%=event.description%>">
+                            <input id="description" type="text" name="description" class="validate">
                             <label for="description">Description</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="col s12 m6 l6 center-align">
-                                <button type="submit"class="btn">UPDATE</button>
+                    <button type="submit" class="btn btn-waves">Create your event!</button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!--this is the update modal-->
+    <% user.events.forEach(function(event) { %>
+        <div id="modal<%=event._id%>" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>🎉<%=event.title%>🎉</h4>        
+                <div class="row">
+                    <form action="/events/<%= event.id %>?_method=PUT" method="POST" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="title" type="text" name="title" class="validate" value="<%=event.title%>">
+                                <label for="title">Title</label>
                             </div>
-                            <div class="col s12 m6 l6">
-                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="center-align">
-                                    <button type="submit" class="btn red right">DELETE</button>
-                                </form>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <select name ="category"> 
+                                    <option disabled selected>Choose your option</option>
+                                    <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
+                                    <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
+                                    <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
+                                    <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
+                                    <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
+                                </select>
                             </div>
-                        </div>    
-                    </div>        
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="location" type="text" name="location" class="validate" value="<%=event.location%>">
+                                <label for="location">Location</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="time" type="text" name="time" class="timepicker" value="<%=event.time%>">
+                                <label for="time">Time</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="date" type="text" name="date" class="datepicker" value="<%=event.date.toDateString()%>">
+                                <label for="date">Date</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>File</span>
+                                            <input type="file" value=<%=event.photo%>>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" name="photo" type="text" value=<%=event.photo%>>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="description" type="text" name="description" class="validate" value="<%=event.description%>">
+                                <label for="description">Description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="col s12 m6 l6 center-align">
+                                    <button type="submit"class="btn">UPDATE</button>
+                    </form>
+                                </div>
+                                <div class="col s12 m6 l6">
+                                    <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="center-align">
+                                        <button type="submit" class="btn red right">DELETE</button>
+                                    </form>
+                                </div>
+                            </div>    
+                        </div>        
             </div>
         </div>
     </div>
