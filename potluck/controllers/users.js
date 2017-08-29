@@ -48,9 +48,10 @@ function deleteEvent(req, res) {
 function sendEmail(req,res) {
     var mailOptions={
         from: req.user.email,
-        to: req.params.name,
-        subject: req.params.subject,
-        text: req.params.content,
+        to: req.body.to, 
+        cc: req.body.cc,
+        subject: req.body.subject,
+        text: req.body.text,
         html:'<h1>This is a test</h1></br><h2>here is another test<h2></br><h6>and one more</h6>'
     }
         console.log('+++++++++++++++++++++++++++')
@@ -59,10 +60,9 @@ function sendEmail(req,res) {
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
              console.log(err);
-            
         } 
         console.log("Message %s sent: %s", info.response, info.message);
-        res.end();
+        res.redirect('/events');
     });
 }
 

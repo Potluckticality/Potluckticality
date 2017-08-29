@@ -20,6 +20,10 @@ body {
   border-radius: 50%;
 }
 
+input {
+  color: white;
+}
+
 nav {
   background-color: #b0c4de !important;
   opacity: .97;
