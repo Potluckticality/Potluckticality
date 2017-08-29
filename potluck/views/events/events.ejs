@@ -3,11 +3,11 @@
 
     <div class="welcome">
         <div class="container valign-wrapper">
-            <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name %> </h6>
+            <img src="<%= user.photo %>"class="profile-photo">&nbsp;&nbsp;<h6 class="white-text shadow">Welcome, <%= user.name.toUpperCase() %> </h6>
         </div>
         
         <div class="half-container">
-            <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons">add</i></a></h2>
+            <h2 class="white-text shadow">Events &nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn-floating btn-large modal-trigger custom-color" href="#modal1"><i class="material-icons deep-purple lighten-1">add</i></a></h2>
         </div>
         <hr>
     </div>
@@ -35,16 +35,16 @@
                             <% } %>
                             <span class="card-title"><%=event.title%></span>
                             <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+                                <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons deep-orange darken-3">delete_forever</i></button>
                             </form>
-                            <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
+                            <a class="btn-floating halfway-fab waves-effect waves-light yellow center-modal-button modal-trigger"href="#modal<%=event._id%>show" class="amber"><i class="material-icons amber">info</i></a>
                             <a class="btn-floating halfway-fab waves-effect waves-light blue left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
                         </div>
                         <div class="card-content">
                             <p><%=event.title%></p>
                         </div>
                     </div>
-                <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light custom-color">Send your invite!</a>
+                <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light deep-purple lighten-2 z-depth-4">Send your invite!</a>
             </div>
         <% }) %>
     </div>
@@ -180,7 +180,7 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="col s12 m6 l6 center-align">
-                                <button type="submit"class="btn">UPDATE</button>
+                                <button type="submit"class="btn blue-accent-1">UPDATE</button>
                 </form>
                             </div>
                             <div class="col s12 m6 l6">
