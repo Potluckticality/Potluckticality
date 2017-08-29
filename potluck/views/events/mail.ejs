@@ -4,11 +4,17 @@
 <div id="container">
     <div>
         <h1>Send Your Invitations</h1>
-        <input id="to" type="text" name="email" placeholder="Enter E-mail ID where you want to send" />
-        <input id="subject" type="text" placeholder="Write Subject" name="subject"/>
-        <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send" name="content"></textarea>
-        <a href="/events/<%=event%>/mail/send" class="btn" id="send_email">Send Email</a>
-        <span id="message"></span>
+        
+        <form action="/events/<%=event%>/mail/send" method="post">   
+            <input type="text" name="to" placeholder="Enter E-mail ID where you want to send" />
+            <input type="text" name="cc" placeholder="Enter E-mail ID where you want to cc" />
+
+            <input type="text" placeholder="Write Subject" name="subject" />
+            <textarea cols="40" rows="5" placeholder="Write what you want to send" name="text"></textarea>
+            <button class="btn" type="submit">Send Email</button>
+            <!--<span id="message"></span>-->
+        </form>
+        
     </div>
 </div>
 
