@@ -15,7 +15,12 @@ passport.use(new GoogleStrategy({
         if (profile.photos[0].value) {
           user.photo = profile.photos[0].value
         }
-
+        if (profile.name.familyName) {
+          user.lastName = profile.name.familyName
+        }
+        if (profile.name.givenName) {
+          user.firstName = profile.name.givenName
+        }
         user.save(function(err) {
           if (err) return cb(err);
           return cb(null, user);
@@ -23,6 +28,8 @@ passport.use(new GoogleStrategy({
       } else {
         var newUser = new User({
           name: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
           email: profile.emails[0].value,
           googleId: profile.id
         });

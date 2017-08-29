@@ -17,6 +17,8 @@ let eventSchema = new Schema({
 
 let userSchema = new Schema({
     name: String,
+    firstName:String,
+    lastName:String,
     email: String,
     googleId: String,
     photo: String,
