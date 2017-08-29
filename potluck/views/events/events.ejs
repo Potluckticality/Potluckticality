@@ -3,18 +3,16 @@
         <div class="welcome">
             <h5>Create Event &nbsp;&nbsp;
             <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
-                href="#modal1"><i class="material-icons">add</i>
+                href="#modal1"><i class="material-icons deep-purple lighten-1">add</i>
             </a></h5>
             <hr>
         </div>
     </div>
-
     <div class="blur-two">
         <div class="row">
             <div class="col s12 center-align">
                 <% user.events.forEach(function(event) { %>
                     <div class="col s12 m6 l3">
-
                         <!--this is the card that shows, has a update, show and delete button-->
                         <div class="card">
                             <div class="card-image">
@@ -40,7 +38,7 @@
                                 <p><%=event.title%></p>
                             </div>
                         </div>
-                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light custom-color">Send your invite!</a>
+                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light deep-purple lighten-2">Send your invite!</a>
                 </div>
             <% }) %>
         </div>

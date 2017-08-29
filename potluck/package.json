@@ -12,6 +12,7 @@
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.6",
+    "email-templates": "^2.7.1",
     "express": "~4.15.2",
     "express-session": "^1.15.5",
     "google-auth-library": "^0.10.0",
