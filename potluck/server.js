@@ -7,11 +7,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var _ = require('underscore');
-<<<<<<< HEAD
-=======
-var nodemailer = require('nodemailer');
-var xoauth2 = require('xoauth2');
->>>>>>> 4d7df8d025910e6aaf0c62ba56bd6c6455d8dfa1
 
 var cors = require('cors');
 var methodOverride = require('method-override');
@@ -19,21 +14,12 @@ var methodOverride = require('method-override');
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
-<<<<<<< HEAD
 require('./config/mail.js');
-=======
-require('./config/mail');
-
->>>>>>> 4d7df8d025910e6aaf0c62ba56bd6c6455d8dfa1
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
-<<<<<<< HEAD
-
-=======
->>>>>>> 4d7df8d025910e6aaf0c62ba56bd6c6455d8dfa1
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
