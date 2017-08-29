@@ -37,7 +37,6 @@ i.small {
   font-size: 1.3rem !important;
   float: left;
 }
-
 .blur {
   margin: 0 auto !important;
   display: flex;
@@ -52,24 +51,19 @@ i.small {
   padding-bottom: 100px;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
-
 h5 {
   color: white;
 }
-
 .center-modal-button {
   margin-right:34%;
 }
-
 .card-image-resize {
   height: 250px;
   width:250px;
 }
-
 a {
   color: #00B7FF;
 }
-
 .custom-color {
   background-color: rgb(156,176,208) !important;
 }
