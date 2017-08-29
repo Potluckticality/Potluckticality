@@ -15,7 +15,12 @@ html {
 .half-container {
   margin-left: 4%;
 }
-
+.p-text-font {
+  font-size: 2rem;
+}
+.custom-left {
+  text-align:left;
+}
 .brand-logo {
   padding-left: 10px !important;
 }

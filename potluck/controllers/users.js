@@ -1,6 +1,11 @@
 var User = require('../models/user');
 var transporter = require('./../config/mail')
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 
 function index(req, res) {
     res.render('events/events', {user: req.user});
@@ -54,9 +59,7 @@ function sendEmail(req,res) {
         text: req.body.text,
         html:'<h1>This is a test</h1></br><h2>here is another test<h2></br><h6>and one more</h6>'
     }
-        console.log('+++++++++++++++++++++++++++')
-        console.log('server', req.body)
-        console.log('+++++++++++++++++++++++++++')
+
     transporter.sendMail(mailOptions, function(err, info){
         if (err) console.log(err);
         console.log("Message %s sent: %s", info.response, info.message);

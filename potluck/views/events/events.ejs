@@ -191,53 +191,40 @@
 <% user.events.forEach(function(event) { %>
     <div id="modal<%=event._id%>show" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4>🎉<%=event.title%>🎉</h4>        
+            <h4 class="black-text"><%=event.title.toUpperCase()%></h4>        
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="title" type="text" name="title" class="validate" value="<%=event.title%>"disabled>
-                        <label for="title">Title</label>
+                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.title%></p>
+                        <label for="title" class="black-text custom-font"><b>TITLE</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="category" type="text" name="category" class="validate" value="<%=event.location%>"disabled>
-                        <label for="category">Category</label>
+                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.category%></p>
+                        <label for="category"class="black-text custom-font"><b>CATEGORY</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="location" type="text" name="location" class="validate" value="<%=event.location%>"disabled>
-                        <label for="location">Location</label>
+                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.location%></p>
+                        <label for="location"class="black-text custom-font"><b>LOCATION</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="time" type="text" name="time" class="timepicker" value="<%=event.time%>"disabled>
-                        <label for="time">Time</label>
+                        <p class="black-text p-text-font ">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.time%> </p>
+                        <label for="time"class="black-text"><b>TIME</b></label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="date" type="text" name="date" class="datepicker" value="<%=event.date.toDateString()%>" disabled>
-                        <label for="date">Date</label>
+                        <p class="black-text p-text-font custom-font">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.date.toDateString()%> </p>
+                        <label for="date" class="black-text"><b>DATE</b></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>File</span>
-                                    <input type="file" value="<%=event.photo%>" disabled>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" name="photo" type="text" value="<%=event.photo%>" disabled>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="row">
                     <div class="input-field col s12">
-                        <input id="description" type="text" name="description" class="validate" value="<%=event.description%>" disabled>
-                        <label for="description"><b>Description</b></label>
+                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.description%> </p>
+                        <label for="description"class="black-text"><b>DESCRIPTION</b></label>
                     </div>
                 </div>       
             </div>
