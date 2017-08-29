@@ -46,13 +46,13 @@
     <!--this is the create/new modal-->
     <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4>Create Event 🎉</h4>
+            <h4 class="black-text">Create Event 🎉</h4>
             <div class="row">
-                <form action="/events" method="POST" class="col s12">
+                <form action="/events" method="POST" class="col s12 black-text">
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="title" type="text" name="title" class="validate">
-                            <label for="title">Title</label>
+                            <label for="title"class="black-text">Title</label>
                         </div>
                     </div>
                     <div class="row">
@@ -69,18 +69,18 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="location" type="text" name="location" class="validate">
-                            <label for="location">Location</label>
+                            <input id="location" type="text" name="location" class="validate black-text">
+                            <label for="location"class="black-text">Location</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="time" type="text" name="time" class="timepicker">
-                            <label for="time">Time</label>
+                            <input id="time" type="text" name="time" class="timepicker black-text">
+                            <label for="time"class="black-text">Time</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="date" type="Date" name="date" class="datepicker">
-                            <label for="date">Date</label>
+                            <input id="date" type="Date" name="date" class="datepicker black-text">
+                            <label for="date"class="black-text">Date</label>
                         </div>
                     </div>
                     <div class="row">
@@ -98,8 +98,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="description" type="text" name="description" class="validate">
-                            <label for="description">Description</label>
+                            <input id="description" type="text" name="description" class="validate black-text">
+                            <label for="description" class="black-text">Description</label>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-waves">Create your event!</button>
@@ -118,12 +118,12 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="title" type="text" name="title" class="validate" value="<%=event.title%>">
-                                <label for="title">Title</label>
+                                <label for="title"class="black-text">Title</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select name ="category"> 
+                                <select name ="category"class="black-text"> 
                                     <option disabled selected>Choose your option</option>
                                     <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
                                     <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
@@ -136,17 +136,17 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="location" type="text" name="location" class="validate" value="<%=event.location%>">
-                                <label for="location">Location</label>
+                                <label for="location"class="black-text">Location</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <input id="time" type="text" name="time" class="timepicker" value="<%=event.time%>">
-                                <label for="time">Time</label>
+                                <label for="time"class="black-text">Time</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="date" type="text" name="date" class="datepicker" value="<%=event.date.toDateString()%>">
-                                <label for="date">Date</label>
+                                <label for="date"class="black-text">Date</label>
                             </div>
                         </div>
                         <div class="row">
@@ -165,7 +165,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="description" type="text" name="description" class="validate" value="<%=event.description%>">
-                                <label for="description">Description</label>
+                                <label for="description"class="black-text">Description</label>
                             </div>
                         </div>
                         <div class="row">
