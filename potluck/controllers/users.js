@@ -54,7 +54,7 @@ function sendEmail(req,res) {
         html:'<h1>This is a test</h1></br><h2>here is another test<h2></br><h6>and one more</h6>'
     }
         console.log('+++++++++++++++++++++++++++')
-        console.log('server', req.body)
+        console.log('server', req)
         console.log('+++++++++++++++++++++++++++')
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
