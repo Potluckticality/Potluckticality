@@ -1,21 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
-var Event = require('./event');
 
-require('dotenv').config();
 
-// let eventSchema = new Schema({
-//     title: String,
-//     location: String,
-//     time: String,
-//     description: String,
-//     date: Date,
-//     category:String,
-//     photo:String
-// }, {
-//     timestamps: true
-// });
 
 let userSchema = new Schema({
     name: String,
