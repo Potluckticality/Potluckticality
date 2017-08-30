@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var ObjectId = Schema.Types.ObjectId;
-var User = require('./user');
+// var ObjectId = Schema.Types.ObjectId;
 
 require('dotenv').config();
 
@@ -14,7 +13,7 @@ let eventSchema = new Schema({
     category: String,
     photo: String,
     users: [{
-        type: ObjectId, 
+        type: Schema.Types.ObjectId, 
         ref: "User"
     }]
 }, {
