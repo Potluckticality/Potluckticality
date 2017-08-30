@@ -1,10 +1,10 @@
 var User = require('../models/user');
-var transporter = require('./../config/mail')
+var Event = require('../models/event');
+var transporter = require('./../config/mail');
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 
 function index(req, res) {
     res.render('events/events', {user: req.user});
