@@ -1,7 +1,6 @@
 require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
-require('dotenv').config();
 mongoose.connect(process.env.DATABASE_URL)
 
 mongoose.connection.once('open', () => {

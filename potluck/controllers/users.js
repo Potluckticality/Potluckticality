@@ -6,7 +6,6 @@ function capitalize(string) {
 }
 
 
-
 function index(req, res) {
     res.render('events/events', {user: req.user});
 }
