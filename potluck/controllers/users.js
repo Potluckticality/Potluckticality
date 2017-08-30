@@ -8,7 +8,7 @@ function capitalize(string) {
 
 function index(req, res) {
     console.log(req.user.events)
-    User.findOne({id: req.user.id}).populate('events').exec(function(err, event) {
+    User.findOne({_id: req.user.id}).populate('events').exec(function(err, event) {
         if (err) console.log(err);
         res.render('events/events', {user: req.user});
     });
@@ -22,8 +22,9 @@ function showEvent(req, res) {
 
 function createEvent(req, res) {
     console.log('REQ"S BODY!!!', req.body)
+    let event = req.body;
     
-    req.user.events.push({event: req.body});
+    req.user.events.push(event);
     console.log('BODY!!!', req.body);
     req.user.save(function(err) {
         if (err) res.redirect('/');
