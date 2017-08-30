@@ -1,5 +1,5 @@
-var User = require('../models/user');
 var Event = require('../models/event');
+var User = require('../models/user');
 var transporter = require('./../config/mail');
 
 function capitalize(string) {
@@ -7,7 +7,11 @@ function capitalize(string) {
 }
 
 function index(req, res) {
-    res.render('events/events', {user: req.user});
+    console.log(req.user.events)
+    User.findOne({_id: req.user.id}).populate('events').exec(function(err, event) {
+        if (err) console.log(err);
+        res.render('events/events', {user: req.user});
+    });
 }
 
 function showEvent(req, res) {

@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var eventCtrl = require('./../controllers/events');
+var eventCtrl = require('./../controllers/users');
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
