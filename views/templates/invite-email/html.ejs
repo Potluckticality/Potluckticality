@@ -2,8 +2,7 @@
     <h1>You've been invited!</h1>
     <h3><%= user %> invited you to their <%= event %>!</h3>
     <h4>Follow the link below to let them know if you can make it.</h4>
-    <a href="'potluckticality.herokuapp.com/events/' + 
-        <%= event.id %> + '/confirm?attending=true">:)</a>
+    <a href=`potluckticality.herokuapp.com/events/${id}/confirm?attending=true`>:)</a>
     <a href="'potluckticality.herokuapp.com/events/' + 
     <%= id %> + '/confirm?attending=false">:(</a>  
 </div>  
