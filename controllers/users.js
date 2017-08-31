@@ -24,7 +24,6 @@ function showEvent(req, res) {
 }
 
 function createEvent(req, res) {
-
         let party = new Event(req.body);
         party.save(function(err, party) {
             req.user.events.push(party);
@@ -95,6 +94,7 @@ function sendEmail(req,res) {
                     html: invite.html,
                     style: invite.css
                 }
+                console.log(invite)
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
                         return console.log(err);
@@ -121,6 +121,16 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
+    if(req.query.attending) {
+        Event.findById(req.params.id, function(err, event) {
+            event.users.push(req.user)
+            event.save(function(err) {
+                if(err) console.log(err)
+                res.render('/events/')
+            })
+        })
+    }
+    res.json(null)
 
 }
 

@@ -12,9 +12,12 @@ router.get('/auth/google', passport.authenticate(
   { scope: ['profile', 'email'] }
 ));
 
+function inviteRedirect() {
+  
+}
+
 router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
+  'google', {
     successRedirect: '/',
     failureRedirect: '/'
   }
