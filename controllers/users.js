@@ -121,14 +121,14 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
-    if(req.query.attending) {
-        Event.findById(req.params.id, function(err, event) {
-            event.users.push(req.user)
-            event.save(function(err) {
-                if(err) console.log(err)
-                res.render('/events/')
-            })
-        })
+    // if(req.query.attending) {
+    //     Event.findById(req.params.id, function(err, event) {
+    //         event.users.push(req.user)
+    //         event.save(function(err) {
+    //             if(err) console.log(err)
+                res.render('/events/:id/confirmPage')
+        //     })
+        // })
     }
     res.json(null)
 
@@ -142,6 +142,6 @@ module.exports = {
     deleteEvent,
     sendEmail,
     prepEmail,
-    homePage
-    // confirmPage
+    homePage,
+    confirmPage
 }
