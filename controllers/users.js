@@ -5,7 +5,6 @@ var EmailTemplate = require('email-templates').EmailTemplate
 var path = require('path');
 var templateDir = path.join(__dirname, '../views', 'templates', 'invite-email' )
 var async = require('async');
-var ejs = require('ejs');
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -78,13 +77,10 @@ function sendEmail(req,res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
         var invitation = new EmailTemplate(templateDir)
-        console.log(invitation)
         Event.findById(req.params.id, function(err, event) {
-            var info = {user:req.user.firstName, event:event.category, time:event.time, location:event.location, to:req.body.to, subject:req.body.subject}
-            console.log('^^info========================')
+            var info = {user:req.user.firstName, event:event.category, time:event.time, location:event.location, to:req.body.to, subject:req.body.subject, id:event.id}
+            console.log(info)
             invitation.render(info, function(err, invite) {
-            console.log(invite)
-            console.log('^^invitation========================')
                 var mailOptions = {
                     to:info.to,
                     from:req.user.email,
@@ -116,6 +112,10 @@ function homePage(req, res) {
     })
 }
  
+function confirmPage(req,res) {
+
+}
+
 module.exports = {
     index,
     createEvent,
@@ -124,5 +124,6 @@ module.exports = {
     deleteEvent,
     sendEmail,
     prepEmail,
-    homePage
+    homePage,
+    confirmPage
 }
