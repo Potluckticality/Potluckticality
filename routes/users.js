@@ -10,6 +10,7 @@ function isLoggedIn(req, res, next) {
 router.get('/events', isLoggedIn, userCtrl.index);
 router.post('/events', isLoggedIn, userCtrl.createEvent);
 router.get('/', userCtrl.homePage);
+router.get('/events/:id/confirm', userCtrl.confirmPage);
 router.put('/events/:id', isLoggedIn, userCtrl.updateEvent);
 router.delete('/events/:id', isLoggedIn, userCtrl.deleteEvent);
 router.get('/events/:id/mail', isLoggedIn, userCtrl.prepEmail);
