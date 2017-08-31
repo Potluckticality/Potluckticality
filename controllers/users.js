@@ -120,9 +120,9 @@ function homePage(req, res) {
     })
 }
  
-// function confirmPage(req,res) {
+function confirmPage(req,res) {
 
-// }
+}
 
 module.exports = {
     index,
@@ -132,6 +132,6 @@ module.exports = {
     deleteEvent,
     sendEmail,
     prepEmail,
-    homePage
-    // confirmPage
+    homePage,
+    confirmPage
 }
