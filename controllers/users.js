@@ -1,6 +1,11 @@
 var Event = require('../models/event');
 var User = require('../models/user');
 var transporter = require('./../config/mail');
+var EmailTemplate = require('email-templates').EmailTemplate
+var path = require('path');
+var templateDir = path.join(__dirname, '../views', 'templates', 'invite-email' )
+var async = require('async');
+var ejs = require('ejs');
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -9,7 +14,6 @@ function capitalize(string) {
 function index(req, res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
-        console.log(user.events)
         res.render('events/events', {user})
     })
 }
@@ -31,10 +35,10 @@ function createEvent(req, res) {
                 } else {
                     User.populate(req.user, 'events', function(err) {
                         return res.render('events/events', {user:req.user});
-                    });
-                }
-            });
+                });
+            }
         });
+    });
 }
 
 function updateEvent(req, res) {
@@ -70,32 +74,34 @@ function deleteEvent(req, res) {
     });
 }
 
-var EmailTemplate = require('email-templates').EmailTemplate;
-var path = require('path')
-var templateDir = path.join(__dirname, './../views/invite-email');
-
 function sendEmail(req,res) {
-    var myTemplate = new EmailTemplate(templateDir);
-
-    myTemplate.render(info, function(err, result) {
-        if (err) console.log('ERRROORRRR')
-    })
-
-    var mailOptions={
-        from: req.user.email,
-        to: req.body.to, 
-        cc: req.body.cc,
-        subject: 'You are invited!',
-        html: req.body.text
-        // html: html.ejs
-    }
-
-    // var myTemplate = new EmailTemplate(templateDir);
-
-    transporter.sendMail(mailOptions, function(err, info){
-        if (err) console.log(err);
-        console.log("Message %s sent: %s", info.response, info.message);
-        res.redirect('/events');
+    User.populate(req.user, 'events', function(err, user) {
+        if(err) console.log(err);
+        var invitation = new EmailTemplate(templateDir)
+        console.log(invitation)
+        Event.findById(req.params.id, function(err, event) {
+            var info = {user:req.user.firstName, event:event.category, time:event.time, location:event.location, to:req.body.to, subject:req.body.subject}
+            console.log('^^info========================')
+            invitation.render(info, function(err, invite) {
+            console.log(invite)
+            console.log('^^invitation========================')
+                var mailOptions = {
+                    to:info.to,
+                    from:req.user.email,
+                    subject:info.subject,
+                    html: invite.html
+                }
+                transporter.sendMail(mailOptions, function(err, info) {
+                    if(err) {
+                        return console.log(err);
+                    } else {
+                        console.log('Message %s sent: %s', info.response, info.message);
+                        res.redirect('/events');
+                    }
+                    transporter.close();
+                });
+            });
+        });      
     });
 }
 
