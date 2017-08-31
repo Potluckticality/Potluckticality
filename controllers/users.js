@@ -90,7 +90,6 @@ function sendEmail(req,res) {
                     from:req.user.email,
                     subject:info.subject,
                     html: invite.html
-                    // html:ejs.renderFile(__dirname + '../views', 'templates', 'invite-email', 'html.ejs', )
                 }
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
