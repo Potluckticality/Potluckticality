@@ -84,7 +84,8 @@ function sendEmail(req,res) {
                 time: event.time, 
                 location: event.location, 
                 to: req.body.to, 
-                subject: req.body.subject
+                subject: req.body.subject,
+                id: event.id
             }
             emailTemplate.render(info, function(err, invite) {
                 var mailOptions = {
