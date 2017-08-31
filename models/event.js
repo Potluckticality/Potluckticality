@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// var ObjectId = Schema.Types.ObjectId;
+var ObjectId = Schema.Types.ObjectId;
 
 
 let eventSchema = new Schema({
@@ -10,11 +10,12 @@ let eventSchema = new Schema({
     description: String,
     date: Date,
     category: String,
-    photo: String
-    // users: [{
-    //     type: ObjectId, 
-    //     ref: "User"
-    // }]
+    photo: String,
+    attending: Boolean,
+    users: [{
+        type: ObjectId, 
+        ref: "User"
+    }]
 }, {
     timestamps: true
 });

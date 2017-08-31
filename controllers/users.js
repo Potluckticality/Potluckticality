@@ -5,7 +5,6 @@ var EmailTemplate = require('email-templates').EmailTemplate
 var path = require('path');
 var templateDir = path.join(__dirname, '../views', 'templates', 'invite-email' )
 var async = require('async');
-var ejs = require('ejs');
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -77,19 +76,23 @@ function deleteEvent(req, res) {
 function sendEmail(req,res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
-        var invitation = new EmailTemplate(templateDir)
-        console.log(invitation)
+        var emailTemplate = new EmailTemplate(templateDir)
         Event.findById(req.params.id, function(err, event) {
-            var info = {user:req.user.firstName, event:event.category, time:event.time, location:event.location, to:req.body.to, subject:req.body.subject}
-            console.log('^^info========================')
-            invitation.render(info, function(err, invite) {
-            console.log(invite)
-            console.log('^^invitation========================')
+            var info = {
+                user: req.user.firstName, 
+                event: event.category, 
+                time: event.time, 
+                location: event.location, 
+                to: req.body.to, 
+                subject: req.body.subject
+            }
+            emailTemplate.render(info, function(err, invite) {
                 var mailOptions = {
                     to:info.to,
                     from:req.user.email,
                     subject:info.subject,
-                    html: invite.html
+                    html: invite.html,
+                    style: invite.css
                 }
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
