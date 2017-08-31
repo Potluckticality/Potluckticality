@@ -13,7 +13,6 @@
             <div class="col s12 center-align">
                 <% user.events.forEach(function(event) { %>
 
-
                     <div class="col s12 m6 l3">
                         <!--this is the card that shows, has a update, show and delete button-->
                         <div class="card">
@@ -37,18 +36,6 @@
                                 <a class="btn-floating halfway-fab blue lighten-4 left modal-trigger"href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
                             </div>
                             <div class="card-content"></div>
-                            <!--<div class="card-content">
-                                <p><%=event.title%></p>
-                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="delete">
-                                    <button type="submit" class="btn-floating blue lighten-4 right"><i class="material-icons">delete_forever</i></button>
-                                </form>
-                                <div class="info">
-                                    <a class="btn-floating blue lighten-4 center-modal-button modal-trigger" id="info" href="#modal<%=event._id%>show"><i class="material-icons">info</i></a>
-                                </div>
-                                <div class="update">
-                                    <a class="btn-floating blue lighten-4 left modal-trigger" id="update" href="#modal<%=event._id%>"><i class="material-icons">update</i></a>
-                                </div>
-                            </div>-->
                         </div>
                     <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light deep-purple lighten-2">Send your invite!</a>
                 </div>
@@ -186,11 +173,6 @@
                                 <div class="col s12 m6 l6 center-align">
                                     <button type="submit"class="btn">UPDATE</button>
                     </form>
-                                </div>
-                                <div class="col s12 m6 l6">
-                                    <form action="/events/<%= event.id %>?_method=DELETE" method="POST" class="center-align">
-                                        <button type="submit" class="btn deep-orange darken-4 right">DELETE</button>
-                                    </form>
                                 </div>
                             </div>    
                         </div>        
