@@ -130,7 +130,6 @@ function confirmPage(req,res) {
         //     })
         // })
     }
-    res.json(null)
 
 // }
 
