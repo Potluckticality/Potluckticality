@@ -76,16 +76,24 @@ function deleteEvent(req, res) {
 function sendEmail(req,res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
-        var invitation = new EmailTemplate(templateDir)
+        var emailTemplate = new EmailTemplate(templateDir)
         Event.findById(req.params.id, function(err, event) {
-            var info = {user:req.user.firstName, event:event.category, time:event.time, location:event.location, to:req.body.to, subject:req.body.subject, id:event.id}
-            console.log(info)
-            invitation.render(info, function(err, invite) {
+            var info = {
+                user: req.user.firstName, 
+                event: event.category, 
+                time: event.time, 
+                location: event.location, 
+                to: req.body.to, 
+                subject: req.body.subject,
+                id:event.id
+            }
+            emailTemplate.render(info, function(err, invite) {
                 var mailOptions = {
                     to:info.to,
                     from:req.user.email,
                     subject:info.subject,
-                    html: invite.html
+                    html: invite.html,
+                    style: invite.css
                 }
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
