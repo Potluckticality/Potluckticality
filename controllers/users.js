@@ -35,20 +35,6 @@ function createEvent(req, res) {
                 }
             });
         });
-
-    // User.findById(req.user._id, function(err, user) {
-    //     let party = new Event(req.body);
-    //     party.save(function(err, party) {
-    //         user.events.push(party);
-    //         user.save(function(err, user) {
-    //             if (err) {
-    //                 console.log(err);
-    //             } else {
-    //                 return res.render('events/events', {user:user});
-    //             }
-    //         });
-    //     });
-    // });
 }
 
 function updateEvent(req, res) {
@@ -83,19 +69,28 @@ function deleteEvent(req, res) {
         }
     });
 }
-    // req.user.events.remove(req.params.id);
-    // req.user.save(function(err) {
-    // })
+
+var EmailTemplate = require('email-templates').EmailTemplate;
+var path = require('path')
+var templateDir = path.join(__dirname, './../views/invite-email');
 
 function sendEmail(req,res) {
+    var myTemplate = new EmailTemplate(templateDir);
+
+    myTemplate.render(info, function(err, result) {
+        if (err) console.log('ERRROORRRR')
+    })
+
     var mailOptions={
         from: req.user.email,
         to: req.body.to, 
         cc: req.body.cc,
-        subject: req.body.subject,
-        text: req.body.text,
-        html:'<h1>This is a test</h1></br><h2>here is another test<h2></br><h6>and one more</h6>'
+        subject: 'You are invited!',
+        html: req.body.text
+        // html: html.ejs
     }
+
+    // var myTemplate = new EmailTemplate(templateDir);
 
     transporter.sendMail(mailOptions, function(err, info){
         if (err) console.log(err);

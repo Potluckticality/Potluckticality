@@ -10,7 +10,7 @@ let eventSchema = new Schema({
     description: String,
     date: Date,
     category: String,
-    photo: String,
+    photo: String
     // users: [{
     //     type: ObjectId, 
     //     ref: "User"

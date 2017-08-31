@@ -33,6 +33,13 @@ input {
   color: white;
 }
 
+.blue {
+  background-color: #b0c4de !important;
+  opacity: .97 !important;
+  padding: 10px;
+  margin: 0 10px;
+}
+
 nav {
   background-color: #b0c4de !important;
   opacity: .97;
@@ -97,7 +104,7 @@ h5 {
 }
 
 a {
-  /*color: #00B7FF;*/
+  color: purple !important;
 }
 .custom-color {
   background-color: rgb(156,176,208) !important;
