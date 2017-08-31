@@ -132,7 +132,7 @@ function confirmPage(req,res) {
     }
     res.json(null)
 
-}
+// }
 
 module.exports = {
     index,
@@ -142,6 +142,6 @@ module.exports = {
     deleteEvent,
     sendEmail,
     prepEmail,
-    homePage,
-    confirmPage
+    homePage
+    // confirmPage
 }
