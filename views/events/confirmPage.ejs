@@ -1,6 +1,6 @@
-<%-include('./../partials/header')%>
+<%- include('./../_partials/header') %>
 
-<% if(attending) { %>
+<% if(req.query.params === true) { %>
     <h1>yay </h1>
 <% } else { %>
     <h1>poo </h1>
@@ -8,4 +8,4 @@
 
 
 
-<%-include('./../partials/footer')%>
+<%- include('./../_partials/footer') %>

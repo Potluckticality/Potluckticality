@@ -126,11 +126,10 @@ function confirmPage(req,res) {
     //         event.users.push(req.user)
     //         event.save(function(err) {
     //             if(err) console.log(err)
-                res.render('/events/confirmPage')
+                res.render('events/confirmPage')
         //     })
         // })
     }
-    // res.json(null)
 
 // }
 
