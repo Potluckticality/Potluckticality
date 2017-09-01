@@ -1,13 +1,24 @@
 <%- include('./_partials/header') %>
 
     <% if (user) { %>
-        <div class="blur-one">
-            <div class="welcome">
+        <% if (user.events.length) { %>
+            <div class="blur-one">
+                <div class="welcome">
+                    <h5><%= user.firstName %>'s Events</h5>
+                    <hr>
+                </div>
+        <% } else { %>
+            <div class="blur-event">
                 <h5><%= user.firstName %>'s Events</h5>
-                <hr>
-            </div>
+                <hr><br>
+                <h6>You don't have any event's yet!</h6>
+        <% } %>
         </div> 
-        <div class="blur-two">
+        <% if (user.events.length) { %>
+            <div class="blur-two">
+        <% } else { %>
+            <div>
+        <% } %>     
         <div class="row">
             <div class="col s12">
                 <% user.events.forEach(function(event) { %>
@@ -46,7 +57,12 @@
             </div>
         </div>
 
+    <% } else { %>
+        <div class="blur-welcome">
+            <h3>Forget the technicalities with Potluckticality!</h3><hr>
+            <h5>Sign up and invite your friends to your events.</h5><br>
+            <h6>Have a clear way to decide who is bringing what dish!</h6>
+        </div>
     <% } %>
-
 
 <%- include('./_partials/footer') %>

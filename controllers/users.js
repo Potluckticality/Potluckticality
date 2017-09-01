@@ -14,7 +14,7 @@ function index(req, res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
         res.render('events/events', {user})
-    })
+    });
 }
 
 function showEvent(req, res) {
@@ -94,7 +94,6 @@ function sendEmail(req,res) {
                     html: invite.html,
                     style: invite.css
                 }
-                console.log(invite)
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
                         return console.log(err);
@@ -117,30 +116,14 @@ function prepEmail(req,res) {
 function homePage(req, res) {
     User.populate(req.user, 'events', function(err) {
         res.render('index', {user:req.user})
-    })
+    });
 }
  
 function confirmPage(req,res) {
-    console.log('PARAMS!!!', req.query)
-
     Event.findById(req.query.id, function(err, event) {
         res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
-    })
-
-    // req.user.event.findById(req.params.id, function(err, event) {
-    //     console.log(event);
-    // })
-    
-    // if(req.query.attending) {
-    //     Event.findById(req.params.id, function(err, event) {
-    //         event.users.push(req.user)
-    //         event.save(function(err) {
-    //             if(err) console.log(err)
-        //     })
-        // })
-    }
-
-// }
+    });
+}
 
 module.exports = {
     index,

@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
+let dishesSchema = new Schema({
+    dish: String
+}, {
+    timestamps: true
+});
 
 let eventSchema = new Schema({
     title: String,
@@ -12,6 +17,7 @@ let eventSchema = new Schema({
     category: String,
     photo: String,
     attending: Boolean,
+    dishes: [dishesSchema],
     users: [{
         type: ObjectId, 
         ref: "User"
