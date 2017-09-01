@@ -14,7 +14,7 @@ function index(req, res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
         res.render('events/events', {user})
-    })
+    });
 }
 
 function showEvent(req, res) {

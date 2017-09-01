@@ -4,6 +4,7 @@ body {
   height: 700px;
   font-family: 'Josefin Sans', sans-serif !important;
 }
+
 html { 
   background: url('./../images/favorite.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -116,6 +117,7 @@ h5 {
 a {
   color: purple !important;
 }
+
 .custom-color {
   background-color: rgb(156,176,208) !important;
 }

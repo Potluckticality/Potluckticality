@@ -1,9 +1,19 @@
 <div class="blue">
-    <h1>You've been invited!</h1>
+    <h1>Potluckticality</h1>
+    <h2>Forget the technicalities!</h2>
+    <hr><br>
+    <p>🎉</p>
+    <h2>You've been invited!</h2>
     <h3><%= user %> invited you to their <%= event %>!</h3>
-    <h4>Follow the link below to let them know if you can make it.</h4>
-    JSON.stringify(<%= id %>)
-    <!-- <a href='http://localhost:3000/events/<%= id %>/confirm?attending=true&id=<%= id%>'>😄</a> -->
-    <a href='potluckticality.herokuapp.com/events/<%= id %>/confirm?attending=true&id=<%= id%>'>😄</a>
+    <h4>Follow the emojis below to let them know if you can make it.</h4>
+
+    <br><br>
+
+    <a href='http://localhost:3000/events/<%= id %>/confirm?attending=true&id=<%= id%>'>😄</a>&nbsp;&nbsp;&nbsp;
+    <!-- <a href='potluckticality.herokuapp.com/events/<%= id %>/confirm?attending=true&id=<%= id%>'>😄</a> -->
     <a href='potluckticality.herokuapp.com/events/<%= id %>/confirm?attending=false&id=<%= id%>'>😟</a>
+
+    <br><br>
+    <h5>Find out more @ <a href="potluckticality.herokuapp.com">Potluckticality</h5>
 </div>  
+
