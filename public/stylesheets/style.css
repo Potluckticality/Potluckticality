@@ -98,6 +98,7 @@ i.small {
 
 .blur-two {
   margin-bottom: 50px !important;
+  padding: 15px;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
