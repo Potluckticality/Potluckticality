@@ -25,7 +25,9 @@ function showEvent(req, res) {
 
 function createEvent(req, res) {
         let party = new Event(req.body);
+        party.eventId = req.user.id
         party.save(function(err, party) {
+            console.log(party)
             req.user.events.push(party);
             req.user.save(function(err, user) {
                 if (err) {

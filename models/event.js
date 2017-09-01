@@ -16,7 +16,7 @@ let eventSchema = new Schema({
     date: Date,
     category: String,
     photo: String,
-    attending: Boolean,
+    eventId:String,
     dishes: [dishesSchema],
     users: [{
         type: ObjectId, 
