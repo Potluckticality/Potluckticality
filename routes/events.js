@@ -7,8 +7,8 @@ function isLoggedIn(req, res, next) {
   res.redirect('/');
 }
 
-router.get('/dishes', isLoggedIn, eventCtrl.allDishes);
-router.post('/dishes', isLoggedIn, eventCtrl.newDish);
-router.delete('/dishes/:id', isLoggedIn, eventCtrl.deleteDish);
+router.get('/:id/dishes', isLoggedIn, eventCtrl.allDishes);
+router.post('/:id/dishes', isLoggedIn, eventCtrl.newDish);
+router.delete('/:id/dishes/:dishId', isLoggedIn, eventCtrl.deleteDish);
 
 module.exports = router;

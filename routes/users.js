@@ -32,13 +32,7 @@ function checkIfRedirected(req, res, next) {
 
     return res.redirect(redirectPath)
   }
-
-  // redirect them to that redirectPath
-  // clear out the redirect path
-
-  // else show the home page
-
-  return next()
+  return next();
 }
 
 router.get('/events', isLoggedIn, userCtrl.index);

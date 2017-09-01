@@ -42,6 +42,10 @@ nav {
   opacity: .97;
 }
 
+.dish {
+  color: black !important;
+}
+
 #welcome-message {
   align-content: center;
 }
