@@ -85,7 +85,7 @@ i.small {
 }
 
 .blur-one {
-  margin: 0 auto !important;
+  margin-top: 50px !important;
   display: flex;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -97,7 +97,7 @@ i.small {
 }
 
 .blur-two {
-  margin: 0 auto !important;
+  margin-bottom: 50px !important;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
