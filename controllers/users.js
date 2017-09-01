@@ -83,7 +83,7 @@ function sendEmail(req,res) {
                 time: event.time, 
                 location: event.location, 
                 to: req.body.to, 
-                subject: req.body.subject,
+                subject: "You've been invited!",
                 id: event.id
             }
             emailTemplate.render(info, function(err, invite) {
@@ -120,9 +120,22 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
-    Event.findById(req.query.id, function(err, event) {
-        res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+    Event.populate(req.query.id, 'users', function(err, event) {
+        if (req.query.attending) {
+            event.users.push(req.user);
+            event.save(function(err, user) {
+                if (err) return console.log(err);
+                res.render('events/confirmPage', {user: req.user, event, attending: req.query});
+            });
+        }
     });
+    
+    // findById(req.query.id, function(err, event) {
+    //     if (req.query.attending) {
+            
+    //     }
+    //     res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+    // });
 }
 
 module.exports = {
