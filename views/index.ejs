@@ -2,66 +2,89 @@
 
     <% if (user) { %>
         <% if (user.events.length) { %>
-            <div class="blur-one">
-                <div class="welcome">
-                    <h5><%= user.firstName %>'s Events</h5>
-                    <hr>
-                </div>
-        <% } else { %>
-            <div class="blur-event">
-                <h5><%= user.firstName %>'s Events</h5>
-                <hr><br>
-                <h6>You don't have any event's yet!</h6>
-        <% } %>
-        </div> 
-        <% if (user.events.length) { %>
-            <div class="blur-two">
-        <% } else { %>
-            <div>
-        <% } %>     
-        <div class="row">
-            <div class="col s12">
-                <% user.events.forEach(function(event) { %>
-                    <div class="col s12 m4">
-                        <div class="card small">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <% if (event.category === "birthday") { %>
-                                    <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
-                                <% } else if (event.category === "baby-shower") { %>
-                                    <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
-                                <% } else if (event.category === "potluck") { %>
-                                    <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
-                                <% } else if (event.category === "holiday-party") { %>
-                                    <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
-                                <% } else { %>
-                                    <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
-                                <% } %>
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-2"><%= event.title %><i class="material-icons right">more_vert</i></span>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-2"> 
-                                <i class="material-icons right">close</i><br>
-                                <p><i class="small material-icons">people</i><%= event.title %></p>
-                                <hr><p><i class="small material-icons">home</i> <%= event.location %> </p><hr>
-                                <p><i class="small material-icons">access_time</i> <%= event.time %> </p><hr>
-                                <p><i class="small material-icons">date_range</i> <%= event.date.toDateString() %> </p><hr>
-                                <p><i class="small material-icons">details</i> <%= event.description %> </p><hr>
-                            </span>
-                            </div>
-                        </div>
+            <div class="container">
+                <div class="blur-one">
+                    <div class="welcome">
+                        <h5><%= user.firstName %>'s Events</h5>
+                        <hr>
                     </div>
-                    <% }) %>
+        <% } else { %>
+                <div class="blur-event">
+                    <h5><%= user.firstName %>'s Events</h5>
+                    <hr><br>
+                    <h6>You don't have any event's yet!</h6>
+        <% } %>
+            </div> 
+        <% if (user.events.length) { %>
+                <div class="blur-two">
+        <% } else { %>
+                <div>
+        <% } %>     
+                    <div class="row">
+                        <div class="col s12">
+                            <% user.events.forEach(function(event) { %>
+                                <div class="col s12 m6">
+                                    <div class="card medium">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <% if (event.category === "birthday") { %>
+                                                <img src="http://i.imgur.com/3O21Cl1.jpg" class="card-image-resize">
+                                            <% } else if (event.category === "baby-shower") { %>
+                                                <img src="http://i.imgur.com/3qH7cAD.jpg" class="card-image-resize">
+                                            <% } else if (event.category === "potluck") { %>
+                                                <img src="http://i.imgur.com/CRsR4tY.jpg" class="card-image-resize">
+                                            <% } else if (event.category === "holiday-party") { %>
+                                                <img src="http://i.imgur.com/5A3k8wp.jpg" class="card-image-resize">
+                                            <% } else { %>
+                                                <img src="http://i.imgur.com/YmExZrx.jpg" class="card-image-resize">
+                                            <% } %>
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title activator grey-text text-darken-2"><%= event.title %><i class="material-icons right">more_vert</i></span>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-2"> 
+                                                <i class="material-icons right">close</i><br>
+                                                <p><i class="small material-icons">people</i><%= event.title %></p>
+                                                <hr><p><i class="small material-icons">home</i> <%= event.location %> </p><hr>
+                                                <p><i class="small material-icons">access_time</i> <%= event.time %> </p><hr>
+                                                <p><i class="small material-icons">date_range</i> <%= event.date.toDateString() %> </p><hr>
+                                                <p><i class="small material-icons">details</i> <%= event.description %> </p><hr>
+                                                <p> Dishes: </p>
+                                                <% event.dishes.forEach(function(dish) { %>
+                                                    <p><i class="small material-icons">local_dining</i><%= user.firstName%>: <%= dish.dish %> </p>
+                                                <% }) %>
+                                                <hr>
+                                                <a class="btn halfway-fab blue lighten-4 left modal-trigger"href="#modal<%=event.id%>/dishes"><i class="material-icons">add</i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="modal<%=event.id%>/dishes" class="modal modal-fixed-footer">
+                                        <div class="modal-content">
+                                            <h4 class="black-text">Add Dish</h4>
+                                            <div class="row">
+                                                <form action="/events/<%=event.id %>/dishes" method="POST" class="col s12 black-text">
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <input id="dish" type="text" name="dish" class="validate">
+                                                            <label for="dish"class="black-text">Dish</label>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-waves">Add your dish!</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>            
+                    </div>
                 </div>
-            </div>
-        </div>
-
     <% } else { %>
         <div class="container">
             <div class="blur-welcome">
                 <h3>Forget the technicalities with Potluckticality!</h3><hr>
-                <h5>Sign up and invite your friends to your events.</h5><br>
+                <h5>Sign up and invite your friends to your special events.</h5><br>
                 <h6>Have a clear way to decide who is bringing what dish!</h6>
             </div>
         </div>

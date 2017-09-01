@@ -13,7 +13,7 @@ function capitalize(string) {
 function index(req, res) {
     User.populate(req.user, 'events', function(err, user) {
         if(err) console.log(err);
-        res.render('events/events', {user})
+        res.render('events/events', {user, events: user.events})
     });
 }
 
@@ -122,22 +122,20 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
-    Event.populate(req.query.id, 'users', function(err, event) {
-        if (req.query.attending) {
-            event.users.push(req.user);
-            event.save(function(err, user) {
-                if (err) return console.log(err);
-                res.render('events/confirmPage', {user: req.user, event, attending: req.query});
-            });
-        }
-    });
+    let user = req.user;
     
-    // findById(req.query.id, function(err, event) {
-    //     if (req.query.attending) {
-            
-    //     }
-    //     res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
-    // });
+    Event.findById(req.query.id, function(err, event) {
+        Event.populate(event, 'users', function(err, event) {
+            if (req.query.attending && !event.users.includes(req.user.id)) {
+                event.users.push(req.user);
+                event.save(function(err, user) {
+                    if (err) return res.redirect('/');
+                    console.log(event.users);
+                    res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+                });
+            }
+        });
+    });
 }
 
 module.exports = {
