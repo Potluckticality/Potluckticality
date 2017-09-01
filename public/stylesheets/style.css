@@ -77,6 +77,13 @@ i.small {
   padding: 25px 10px;
 }
 
+.blur-confirm {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin-top: 70px;
+  padding: 35px;
+}
+
 .blur-one {
   margin: 0 auto !important;
   display: flex;

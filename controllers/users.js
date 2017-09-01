@@ -127,7 +127,7 @@ function confirmPage(req,res) {
             if (req.query.attending && !event.users.includes(req.user.id)) {
                 event.users.push(req.user);
                 event.save(function(err, user) {
-                    if (err) return console.log(err);
+                    if (err) return res.redirect('/');
                     console.log(event.users);
                     res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
                 });

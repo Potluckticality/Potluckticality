@@ -3,20 +3,11 @@ var router = express.Router();
 var userCtrl = require('./../controllers/users');
 
 function isLoggedIn(req, res, next) {
-  console.log('checking if logged in')
-  console.log('req.originalUrl =', req.originalUrl)
-  console.log('req.session = ', req.session)
-
   if (req.isAuthenticated()) {
     console.log('logged in')
     return next();
   }
-
   req.session.redirectPath = req.originalUrl
-
-  console.log('now req.session = ', req.session)
-
-  console.log('redirect to home page')
   res.redirect('/');
 }
 
@@ -31,7 +22,7 @@ function checkIfRedirected(req, res, next) {
     console.log('redirectPath =', redirectPath)
 
     return res.redirect(redirectPath)
-  }
+  } 
   return next();
 }
 
