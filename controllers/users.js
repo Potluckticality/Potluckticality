@@ -121,16 +121,21 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
-    console.log('hitting the controller')
-    console.log(req.query)
-    let attending = req.query.attending
-    console.log(req, res)
+    console.log('PARAMS!!!', req.query)
+
+    Event.findById(req.query.id, function(err, event) {
+        res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+    })
+
+    // req.user.event.findById(req.params.id, function(err, event) {
+    //     console.log(event);
+    // })
+    
     // if(req.query.attending) {
     //     Event.findById(req.params.id, function(err, event) {
     //         event.users.push(req.user)
     //         event.save(function(err) {
     //             if(err) console.log(err)
-                res.render('events/confirmPage')
         //     })
         // })
     }
