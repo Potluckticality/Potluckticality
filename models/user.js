@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// var ObjectId = Schema.Types.ObjectId;
-
-
+var ObjectId = Schema.Types.ObjectId;
 
 let userSchema = new Schema({
     name: String,
@@ -12,7 +10,7 @@ let userSchema = new Schema({
     googleId: String,
     photo: String,
     events: [{
-        type: Schema.Types.ObjectId, 
+        type: ObjectId, 
         ref: "Event"
     }]
 }, {

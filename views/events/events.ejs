@@ -1,14 +1,29 @@
 <%- include('./../_partials/header') %>
-    <div class="blur-one">
-        <div class="welcome">
+    
+    <% if (user.events.length) { %>
+        <div class="blur-one">
+            <div class="welcome">
+                <h5>Create Event &nbsp;&nbsp;
+                <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
+                    href="#modal1"><i class="material-icons deep-purple lighten-1">add</i>
+                </a></h5>
+                <hr>
+            </div>
+    <% } else { %>
+        <div class="blur-event">
             <h5>Create Event &nbsp;&nbsp;
             <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
                 href="#modal1"><i class="material-icons deep-purple lighten-1">add</i>
             </a></h5>
-            <hr>
-        </div>
+            <hr><br>
+            <h6>You don't have any event's yet!</h6>
+    <% } %>
     </div>
+    <% if (user.events.length) { %>
     <div class="blur-two">
+    <% } else { %>
+        <div>
+    <% } %>
         <div class="row">
             <div class="col s12 center-align">
                 <% user.events.forEach(function(event) { %>

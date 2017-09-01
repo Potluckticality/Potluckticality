@@ -15,12 +15,15 @@ html {
 .half-container {
   margin-left: 4%;
 }
+
 .p-text-font {
   font-size: 2rem;
 }
+
 .custom-left {
   text-align:left;
 }
+
 .brand-logo {
   padding-left: 10px !important;
 }
@@ -53,6 +56,20 @@ label {
 i.small {
   font-size: 1.3rem !important;
   float: left;
+}
+
+.blur-welcome {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+  margin-top: 170px;
+}
+
+.blur-event {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 25px 10px;
 }
 
 .blur-one {
