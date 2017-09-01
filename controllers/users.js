@@ -121,6 +121,10 @@ function homePage(req, res) {
 }
  
 function confirmPage(req,res) {
+    console.log('hitting the controller')
+    console.log(req.query)
+    let attending = req.query.attending
+    console.log(req, res)
     // if(req.query.attending) {
     //     Event.findById(req.params.id, function(err, event) {
     //         event.users.push(req.user)

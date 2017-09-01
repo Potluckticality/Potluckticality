@@ -18,7 +18,7 @@ function inviteRedirect() {
 
 router.get('/oauth2callback', passport.authenticate(
   'google', {
-    successRedirect: '/',
+    successRedirect: 'back',
     failureRedirect: '/'
   }
 ));
