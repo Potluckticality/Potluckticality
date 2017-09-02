@@ -1,7 +1,7 @@
 <%- include('./_partials/header') %>
 
     <% if (user) { %>
-        <% if (user.events.length) { %>
+        <% if (event.length) { %>
             <div class="container">
                 <div class="blur-one">
                     <div class="welcome">
@@ -15,7 +15,7 @@
                     <h6>You don't have any event's yet!</h6>
         <% } %>
             </div> 
-        <% if (user.events.length) { %>
+        <% if (event.length) { %>
                 <div class="blur-two">
         <% } else { %>
                 <div>
@@ -52,7 +52,7 @@
                                                 <p> Dishes: </p>
                                                 <% event.dishes.forEach(function(dish) { %>
                                                     <% if(user.id === dish.dishId) { %>
-                                                    <button>delete</button>
+                                                        <button>delete</button>
                                                     <% } %>
                                                     <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %> </p>
                                                 <% }) %>
