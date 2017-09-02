@@ -66,6 +66,7 @@
                                         <div class="modal-content">
                                             <h4 class="black-text">Add Dish</h4>
                                             <div class="row">
+                                                <% if (event.users) { %>
                                                 <form action="/events/<%=event.id %>/dishes" method="POST" class="col s12 black-text">
                                                     <div class="row">
                                                         <div class="input-field col s12">
@@ -75,14 +76,15 @@
                                                     </div>
                                                     <button type="submit" class="btn btn-waves">Add your dish!</button>
                                                 </form>
+                                                <% } %>
                                             </div>
                                         </div>
-                                    </div>
-                                <% }) %>
-                            </div>
-                        </div>            
-                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>            
                 </div>
+            </div>
     <% } else { %>
         <div class="container">
             <div class="blur-welcome">
