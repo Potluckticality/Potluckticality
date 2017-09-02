@@ -32,7 +32,7 @@ function createEvent(req, res) {
             req.user.events.push(party);
             req.user.save(function(err, user) {
                 if (err) {
-                    console.log(err);
+                    return res.redirect('/events');
                 } else {
                     User.populate(req.user, 'events', function(err) {
                         return res.render('events/events', {user:req.user});
@@ -92,6 +92,7 @@ function sendEmail(req,res) {
             emailTemplate.render(info, function(err, invite) {
                 var mailOptions = {
                     to:info.to,
+                    cc: req.body.cc,
                     from:req.user.email,
                     subject:info.subject,
                     html: invite.html,
