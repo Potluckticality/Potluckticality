@@ -115,16 +115,19 @@ function prepEmail(req,res) {
     return res.render('events/mail', {user:req.user, event:req.params.id})
 }
 
-function homePage(req, res) {
-    let filteredEvents =[];
-    Event.find({}, function(err, event) {
-        if(event.users.includes(req.user.id) ) {
-            filteredEvents.push(event);
-        }
-    })
-    console.log(filteredEvents)
+function homePage(req, res) {    
     User.populate(req.user, 'events', function(err) {
-        res.render('index', {user:req.user, events:fileteredEvents})
+        if (req.user) {
+            Event.find({users: req.user.id}, function(err, event) {
+
+                return res.render('index', {user: req.user, event})
+
+                console.log('EVEEENT', event);
+
+            });
+        } else {
+            return res.render('index', {user:req.user})
+        }
     });
 }
  
