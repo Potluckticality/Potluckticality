@@ -1,18 +1,17 @@
 var Event = require('../models/event');
-var User = require('../models/user');
 
 function allDishes(req, res) {
     Event.findById(req.params.id, function(err, event) {
+        if (err) return res.redirect('/');
         res.render('events/events', {event, dishes: event.dishes});
     });
 }
 
 function newDish(req, res) {
     Event.findById(req.params.id, function(err, event) {
-        console.log(req.body.dish)
         event.dishes.push({dish: req.body.dish, userName:req.user.firstName, dishId:req.user.id});  
         event.save(function(err) {
-            console.log('dishes', event.dishes)
+            if (err) return res.redirect('/');
             res.redirect('/');
         });
     });
@@ -20,11 +19,9 @@ function newDish(req, res) {
 
 function deleteDish(req, res) {
     Event.findById(req.params.id, function(err, event) {
-        console.log(req.user.id)
-        console.log(event)
         event.dishes.splice(event.dishes.id, 1);
         event.save(function(err) {
-            if (err) return console.log(err);
+            if (err) return res.redirect('/');
             res.redirect('/');
         });
     });

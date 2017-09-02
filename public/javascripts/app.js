@@ -1,12 +1,3 @@
-var template;
-var isEditing = false;
-var holdValue = '';
-
-// $.get('/api/events', function(data) {
-//     template = _.template($('#user-template').html());
-//     render(data);
-// });
-
 $(document).ready(function(){
     $('select').material_select();
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
@@ -37,31 +28,3 @@ $(document).ready(function(){
   
   $(".button-collapse").sideNav();  
 });
-      
-
-// function render(events) {
-//     $('#all-events').html(template({events: events}));
-// }
-
-// function addEvent() {
-//     fetch('/api/events/new', {
-//         method: 'POST',
-//         headers: {'Content-type': 'application/json'},
-//         credentials: 'include',
-//         body: JSON.stringify({
-//             text: $('#event').val()
-//         })
-//     }).then(res => res.json()).then(data => render(data.events)).then({events: $('#event').val('')});
-// }
-
-// document.getElementById('even').addEventListener('click', function() {
-//     $("#item").on('keypress blur', function(event) { 
-//         holdValue = $('#item').val();
-//         if (holdValue) {
-//             if (event.keyCode === 13) {
-//                 addToDo();
-//             }
-//         }
-//     });
-// });
-
