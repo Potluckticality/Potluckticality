@@ -12,14 +12,32 @@ let dishesSchema = new Schema({
 });
 
 let eventSchema = new Schema({
-    title: String,
-    location: String,
-    time: String,
-    description: String,
-    date: Date,
-    category: String,
+    title: {
+        type: String,
+        required: true,
+    },
+    location: {
+        type: String,
+        required: true,
+    },
+    time: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
     photo: String,
-    eventId:String,
+    eventId: String,
     dishes: [dishesSchema],
     users: [{
         type: ObjectId, 
