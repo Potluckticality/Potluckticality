@@ -52,7 +52,9 @@
                                                 <p> Dishes: </p>
                                                 <% event.dishes.forEach(function(dish) { %>
                                                     <% if(user.id === dish.dishId) { %>
-                                                    <button>delete</button>
+                                                    <form action="/events/<%=event.id%>/dishes/<%=dish.id%>?_method=delete" method="POST">
+                                                        <button type ="submit" class="btn waves">delete</button>
+                                                    </form>
                                                     <% } %>
                                                     <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %> </p>
                                                 <% }) %>
