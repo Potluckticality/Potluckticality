@@ -21,7 +21,7 @@
     <% } %>
     </div>
     <% if (user.events.length) { %>
-    <div class="blur-two">
+        <div class="blur-two">
     <% } else { %>
         <div>
     <% } %>
@@ -109,6 +109,7 @@
                                 <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
                                 <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                             </select>
+                            <label for="category" class="black-text">Category</label>
                         </div>
                     </div>
                     <div class="row">
@@ -122,6 +123,8 @@
                             <input id="time" type="text" name="time" class="timepicker black-text">
                             <label for="time"class="black-text">Time</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="input-field col s6">
                             <input id="date" type="Date" name="date" class="datepicker black-text">
                             <label for="date"class="black-text">Date</label>
@@ -162,6 +165,7 @@
                                     <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
                                     <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                                 </select>
+                                <label for="category" class="black-text">Category</label>
                             </div>
                         </div>
                         <div class="row">
@@ -171,11 +175,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                                 <input id="time" type="text" name="time" class="timepicker black-text" value="<%=event.time%>">
                                 <label for="time"class="black-text">Time</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
                                 <input id="date" type="text" name="date" class="datepicker black-text" value="<%=event.date.toDateString()%>">
                                 <label for="date"class="black-text">Date</label>
                             </div>
@@ -188,19 +194,20 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <div class="col s6 m6 l6 left">
-                                    <button type="submit"class="btn">UPDATE</button>
-                    </form>
-                </div>
-                <div class="col s6 mg lg right">
-                    <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn halfway-fab red lighten-4 right">Delete</button>
+                                <div class="col s2 left">
+                                    <button type="submit"class="btn blue lighten-2">UPDATE</button>
+                                </div>
+                                <div class="col s6 right">
+                                    <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn halfway-fab red lighten-4 right">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>    
         </div>        
-        </div>
-    </div>
         </div>
     </div>
 <% }) %>
@@ -231,11 +238,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <p class="black-text p-text-font ">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.time%> </p>
                         <label for="time"class="black-text"><b>TIME</b></label>
                     </div>
-                    <div class="input-field col s6">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
                         <p class="black-text p-text-font custom-font">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.date.toDateString()%> </p>
                         <label for="date" class="black-text"><b>DATE</b></label>
                     </div>
