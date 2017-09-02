@@ -119,14 +119,10 @@ function homePage(req, res) {
     User.populate(req.user, 'events', function(err) {
         if (req.user) {
             Event.find({users: req.user.id}, function(err, event) {
-
                 return res.render('index', {user: req.user, event})
-
-                console.log('EVEEENT', event);
-
             });
         } else {
-            return res.render('index', {user:req.user})
+            return res.render('index', {user: req.user});
         }
     });
 }
