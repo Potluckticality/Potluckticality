@@ -10,18 +10,14 @@ function allDishes(req, res) {
 }
 
 function newDish(req, res) {
-    console.log("YYAYYIUWRTYEGKTF")
-    // User.populate(req.user, 'events', function(err, user) {
-        Event.findById(req.params.id, function(err, event) {
-            console.log(req.body.dish)
-            event.dishes.push({dish: req.body.dish});
-            event.save(function(err) {
-                console.log('dishes', event.dishes)
-                res.redirect('/');
-            });
+    Event.findById(req.params.id, function(err, event) {
+        console.log(req.body.dish)
+        event.dishes.push({dish: req.body.dish, userName:req.user.firstName, dishId:req.user.id});  
+        event.save(function(err) {
+            console.log('dishes', event.dishes)
+            res.redirect('/');
         });
-
-    // })
+    });
 }
 
 function deleteDish(req, res) {

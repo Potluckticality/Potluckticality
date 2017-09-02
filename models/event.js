@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 let dishesSchema = new Schema({
-    dish: String
+    dish: String,
+    userName: String,
+    dishId:String
+
 }, {
     timestamps: true
 });
