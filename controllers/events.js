@@ -20,7 +20,9 @@ function newDish(req, res) {
 
 function deleteDish(req, res) {
     Event.findById(req.params.id, function(err, event) {
-        event.dishes.remove(event.dishes.dishId);
+        console.log(req.user.id)
+        console.log(event)
+        event.dishes.splice(event.dishes.id, 1);
         event.save(function(err) {
             if (err) return console.log(err);
             res.redirect('/');
