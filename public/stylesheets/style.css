@@ -67,6 +67,10 @@ i.small {
   float: left;
 }
 
+h4.black-text {
+  padding: 10px !important;
+}
+
 .blur-welcome {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;

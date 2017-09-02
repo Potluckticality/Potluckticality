@@ -126,13 +126,17 @@ function confirmPage(req,res) {
     
     Event.findById(req.query.id, function(err, event) {
         Event.populate(event, 'users', function(err, event) {
-            if (req.query.attending && !event.users.includes(req.user.id)) {
-                event.users.push(req.user);
-                event.save(function(err, user) {
-                    if (err) return res.redirect('/');
-                    res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
-                });
-            }
+            Event.find({users: user.id}, function(err, event) {
+                if (!event.indexOf(user) && req.query.attending) {
+                    event.users.push(req.user);
+                    event.save(function(err, user) {
+                        if (err) return res.redirect('/');
+                        res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+                    });
+                } else {
+                    return res.redirect('/');
+                }
+            });
         });
     });
 }
