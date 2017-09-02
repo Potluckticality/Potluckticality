@@ -33,7 +33,7 @@
                                     <p><i class="small material-icons">details</i> <%= event.description %> </p><hr>
                                     <p> Dishes: </p>
                                     <% event.dishes.forEach(function(dish) { %>
-                                        <p><i class="small material-icons">local_dining</i><%= user.firstName%>: <%= dish.dish %> </p>
+                                        <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %> </p>
                                     <% }) %>
                                     <hr>
                                 </span>
