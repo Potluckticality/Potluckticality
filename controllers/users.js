@@ -125,19 +125,18 @@ function confirmPage(req,res) {
     let user = req.user;
     
     Event.findById(req.query.id, function(err, event) {
+        if (req.query.attending && !event.users.indexOf(req.user._id)) {
         Event.populate(event, 'users', function(err, event) {
-            Event.find({users: user.id}, function(err, event) {
-                if (!event.indexOf(user) && req.query.attending) {
-                    event.users.push(req.user);
-                    event.save(function(err, user) {
-                        if (err) return res.redirect('/');
-                        res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
-                    });
-                } else {
-                    return res.redirect('/');
-                }
+                event.users.push(req.user);
+                event.save(function(err, user) {
+                    if (err) return res.redirect('/');
+                    res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+                });
             });
-        });
+        } else {
+            
+            return res.redirect('/');
+        }
     });
 }
 
