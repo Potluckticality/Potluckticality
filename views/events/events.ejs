@@ -198,13 +198,13 @@
                                     <button type="submit"class="btn blue lighten-2">UPDATE</button>
                                 </div>
                                 <div class="col s6 right">
-                                </div>
+                                </form>
+                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn halfway-fab red lighten-4 right" id="delete-button">Delete</button>
+                                </form>
                             </div>
                         </div>
-                    </form>
-                    <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn halfway-fab red lighten-4 right" id="delete-button">Delete</button>
-                    </form>
+                    </div>
                 </div>
             </div>    
         </div>        
