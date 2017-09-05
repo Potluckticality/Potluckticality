@@ -5,6 +5,11 @@ body {
   font-family: 'Josefin Sans', sans-serif !important;
 }
 
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
 .small-font {
   font-size:14px;
   padding:0;
