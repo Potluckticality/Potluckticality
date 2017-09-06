@@ -57,6 +57,8 @@
                                                             <button type ="submit" class="btn red lighten-4">X</button>
                                                         </form>
                                                     </p>
+                                                    <% } else { %>
+                                                        <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %></p>
                                                     <% } %>
                                                 <% }) %>
                                                 <hr>
