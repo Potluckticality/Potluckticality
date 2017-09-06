@@ -18,17 +18,17 @@ function index(req, res) {
 }
 
 function createEvent(req, res) {
-        let party = new Event(req.body);
-        party.eventId = req.user.id;
-        party.users.push(req.user)
-        party.save(function(err, party) {
-            req.user.events.push(party);
-            req.user.save(function(err, user) {
-                if (err) {
-                    return res.redirect('/events');
-                } else {
-                    User.populate(req.user, 'events', function(err) {
-                        return res.render('events/events', {user:req.user});
+    let party = new Event(req.body);
+    party.eventId = req.user.id;
+    party.users.push(req.user)
+    party.save(function(err, party) {
+        req.user.events.push(party);
+        req.user.save(function(err, user) {
+            if (err) {
+                return res.redirect('/events');
+            } else {
+                User.populate(req.user, 'events', function(err) {
+                    return res.render('events/events', {user:req.user});
                 });
             }
         });
