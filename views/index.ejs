@@ -51,15 +51,13 @@
                                                 <p><i class="small material-icons">details</i> <%= event.description %> </p><hr>
                                                 <p> Dishes: </p>
                                                 <% event.dishes.forEach(function(dish) { %>
-                                                    <% if(user.id === dish.dishId) { %>
                                                     <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %>
-                                                        <form action="/events/<%=event.id%>/dishes/<%=dish.id%>?_method=delete" method="POST">
-                                                            <button type ="submit" class="btn red lighten-4">X</button>
-                                                        </form>
+                                                        <% if(user.id === dish.dishId) { %>
+                                                            <form action="/events/<%=event.id%>/dishes/<%=dish.id%>?_method=delete" method="POST">
+                                                                <button type ="submit" class="btn red lighten-4">X</button>
+                                                            </form>
+                                                        <% } %>
                                                     </p>
-                                                    <% } else { %>
-                                                        <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %></p>
-                                                    <% } %>
                                                 <% }) %>
                                                 <hr>
                                                 <a class="btn halfway-fab blue lighten-4 left modal-trigger"href="#modal<%=event.id%>/dishes"><i class="material-icons">add</i></a>
