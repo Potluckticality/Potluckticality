@@ -19,18 +19,11 @@ function newDish(req, res) {
 
 function deleteDish(req, res) {
     Event.findById(req.params.id, function(err, event) {
-        var idx = event.users.findIndex(id => id.equals(req.user._id));
-        if (idx) {
-            console.log(req.user._id)
-            console.log(event.users._id)
-            event.dishes.splice(event.dishes.id, 1);
-            event.save(function(err) {
-                if (err) return res.redirect('/');
-                res.redirect('/');
-            });
-        } else {
+        event.dishes.id(req.params.dishId) && event.dishes.id(req.params.dishId).remove();
+
+        event.save(function(err) {
             res.redirect('/');
-        }
+        });
     });
 }
 
