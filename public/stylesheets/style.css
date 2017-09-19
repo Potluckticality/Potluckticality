@@ -10,84 +10,69 @@ body {
   margin:0 auto;
 }
 html { 
-  background: url('./../images/favorite.jpg') no-repeat center center fixed; 
+  background: url('https://i.imgur.com/Lkfd2s5.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
 .half-container {
   margin-left: 4%;
 }
-
 .p-text-font {
   font-size: 2rem;
 }
-
 .custom-left {
   text-align:left;
 }
-
 .brand-logo {
   padding-left: 10px !important;
 }
-
 .profile-photo {
   border-radius: 50%;
 }
-
 input#description {
   color: black;
 }
-
 nav {
-  background-color: #b0c4de !important;
-  opacity: .97;
+  /*background-color: #b0c4de !important;*/
+  background-color: rgb(236,30,48);
+  opacity: .87;
 }
-
 .dish {
   color: black !important;
 }
-
 #welcome-message {
   align-content: center;
 }
-
 label {
   color: white !important;
 }
-
 .welcome {
   padding: 18px;
 }
-
 i.small {
   font-size: 1.3rem !important;
   float: left;
 }
-
 .blur-welcome {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
   padding: 10px 10px;
-  margin-top: 170px;
+  margin-top: 15%;
 }
-
 .blur-event {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 25px 10px;
 }
-
 .blur-confirm {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   margin-top: 70px;
   padding: 35px;
 }
-
 .blur-one {
   margin-top: 50px !important;
   display: flex;
@@ -99,7 +84,6 @@ i.small {
   padding-bottom: 50px;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
-
 .blur-two {
   margin-bottom: 50px !important;
   padding: 15px;
@@ -112,41 +96,68 @@ i.small {
   padding-bottom: 160px;
   -webkit-backdrop-filter: grayscale(1) contrast(3) blur(1px);
 }
-
 h5 {
   color: white;
 }
-
 .center-modal-button {
   margin-right:34%;
 }
-
 .card-image-resize {
   height: 250px;
   width:250px;
 }
-
 .delete {
   margin: -15px 28px 0px 0px !important;
 }
-
 a {
   color: white !important;
 }
-
 .custom-color {
   background-color: rgb(156,176,208) !important;
 }
-
 .padding-events {
   margin-top:10px;
   margin-bottom:10px;
 }
-
 .shadow {
     text-shadow: 1px 1px darkslategray;
 }
-
+.logo {
+  height: 100px;
+  width: 150px;
+  margin-top: -15px;
+}
+a.align-button {
+  margin-right:28%;
+}
 @keyframes animation_1 {
   0%, 55.5555555555556% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1); opacity: 0; animation-timing-function:ease-in-out} 100% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,20,0,1); opacity:1;}
+}
+@media only screen and (max-width:1200px) and (min-width:992px) {
+
+}
+@media (max-width:998px) {
+    .btn-floating {
+      position: absolute;
+      right: 24px;
+      bottom: -20px;
+    }
+    a.align-button {
+      margin-right:37%;
+    }
+}
+@media (max-width:775px) {
+  a.align-button {
+    margin-right:32%;
+  }
+}
+@media (max-width:600px) {
+  a.align-button {
+    margin-right:38%;
+  }
+}
+@media (max-width:400px) {
+  a.align-button {
+    margin-right:35%;
+  }
 }

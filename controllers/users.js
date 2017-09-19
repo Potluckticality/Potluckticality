@@ -134,7 +134,7 @@ function confirmPage(req,res) {
     
     Event.findById(req.query.id, function(err, event) {
         Event.populate(event, 'users', function(err, event) {
-            if (req.query.attending && !event.users.includes(req.user.id)) {
+            if (req.query.attending && !event.users.includes(req.user._id)) {
                 event.users.push(req.user);
                 event.save(function(err, user) {
                     if (err) return res.redirect('/');

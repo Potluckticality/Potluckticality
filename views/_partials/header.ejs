@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
         <!-- Compiled and minified JavaScript -->
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
@@ -14,14 +15,14 @@
     <body>
         <nav>
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo left">Potluckticality</a>                
+                <a href="/" class="brand-logo left"> <img src="https://i.imgur.com/M1Csq9R.png" alt="" class="logo"> </a>                
                 <ul id="nav-mobile" class="hide-on-small-and-down right">
                     <% if (user) { %>                        
-                        <li><a href="/events">My Events</a></li>
+                        <li><a href="/events">Manage My Events</a></li>
                         <li><a href="/logout">Logout</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile">
-                    <li><a href="/events">My Events</a></li>
+                    <li><a href="/events">Manage My Events</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
                 <a href="#" data-activates="mobile" class="button-collapse hide-on-med-and-up right"><i class="material-icons icon-black">menu</i></a>

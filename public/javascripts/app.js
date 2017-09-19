@@ -35,7 +35,11 @@ $(document).ready(function(){
 
   $('.materialboxed').materialbox();
   
-  $(".button-collapse").sideNav();  
+  $(".button-collapse").sideNav();
+
+  $(".fade").hide(0).delay(500).fadeIn(3000);
+
+  $('.bounce-up').delay(10000).addClass('animated').addClass('bounceInUp');
 });
       
 
