@@ -50,18 +50,23 @@
                                                 <p><i class="small material-icons">details</i> <%= event.description %> </p><hr>
                                                 <p> Dishes: </p>
                                                 <% event.dishes.forEach(function(dish) { %>
-                                                    <% if(user.id === dish.dishId) { %>
-                                                    <form action="/events/<%=event.id%>/dishes/<%=dish.id%>?_method=delete" method="POST">
-                                                        <button type ="submit" class="btn waves">delete</button>
-                                                    </form>
-                                                    <% } %>
-                                                    <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %> </p>
+                                                    <p><i class="small material-icons">local_dining</i><%= dish.userName%>: <%= dish.dish %>
+                                                        <% if (user.id === dish.dishId) { %>
+                                                            <form action="/events/<%=event.id%>/dishes/<%=dish.id%>?_method=delete" method="POST">
+                                                                <button type ="submit" class="btn red lighten-4">X</button>
+                                                            </form>
+                                                        <% } %>
+                                                    </p>
                                                 <% }) %>
                                                 <hr>
                                                 <a class="btn halfway-fab blue lighten-4 left modal-trigger"href="#modal<%=event.id%>/dishes"><i class="material-icons">add</i></a>
                                             </span>
                                         </div>
-                                        <p class="black-text small-font"><%= event.users.length%> people attending this event!</p>
+                                        <% if (event.users.length > 1) { %>
+                                            <p class="black-text small-font"><%= event.users.length%> people attending this event!</p>
+                                        <% } else if (event.users.length === 1) { %>
+                                            <p class="black-text small-font"><%= event.users.length%> person attending this event!</p>
+                                        <% } %>
                                     </div>
                                 </div>
                                 <div id="modal<%=event.id%>/dishes" class="modal modal-fixed-footer">
@@ -96,5 +101,7 @@
             </div>
         </div>
     <% } %>
+
+<script src="./../javascripts/app.js"></script> 
 
 <%- include('./_partials/footer') %>

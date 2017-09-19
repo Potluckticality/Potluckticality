@@ -1,12 +1,3 @@
-var template;
-var isEditing = false;
-var holdValue = '';
-
-// $.get('/api/events', function(data) {
-//     template = _.template($('#user-template').html());
-//     render(data);
-// });
-
 $(document).ready(function(){
     $('select').material_select();
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered

@@ -6,7 +6,7 @@
                 <div class="welcome">
                     <h5>Create Event &nbsp;&nbsp;
                     <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
-                        href="#modal1"><i class="material-icons deep-purple lighten-1">add</i>
+                        href="#modal1"><i class="material-icons blue lighten-2">add</i>
                     </a></h5>
                     <hr>
                 </div>
@@ -14,14 +14,14 @@
         <div class="blur-event">
             <h5>Create Event &nbsp;&nbsp;
             <a class="waves-effect waves-light btn-floating btn-small modal-trigger custom-color" 
-                href="#modal1"><i class="material-icons deep-purple lighten-1">add</i>
+                href="#modal1"><i class="material-icons blue lighten-4">add</i>
             </a></h5>
             <hr><br>
             <h6>You don't have any event's yet!</h6>
     <% } %>
     </div>
     <% if (user.events.length) { %>
-    <div class="blur-two">
+        <div class="blur-two">
     <% } else { %>
         <div>
     <% } %>
@@ -53,10 +53,10 @@
                             </div>
                             <div class="card-content"></div>
                         </div>
-                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light deep-purple lighten-2">Send your invite!</a>
+                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light blue lighten-4">Send your invite!</a>
                 </div>
             <% } else { %>
-                    <div class="col s12 m6 l3">
+                    <div class="col s12 m6">
                         <!--this is the card that shows, has a update, show and delete button-->
                         <div class="card">
                             <div class="card-image">
@@ -80,7 +80,7 @@
                             </div>
                             <div class="card-content"></div>
                         </div>
-                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light deep-purple lighten-2">Send your invite!</a>
+                    <a href="/events/<%=event.id%>/mail" class ="btn waves-effect waves-light blue lighten-2">Send your invite!</a>
                 </div>
                 <% } %>
             <% }) %>
@@ -109,6 +109,7 @@
                                 <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
                                 <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                             </select>
+                            <label for="category" class="black-text">Category</label>
                         </div>
                     </div>
                     <div class="row">
@@ -118,11 +119,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <input id="time" type="text" name="time" class="timepicker black-text">
                             <label for="time"class="black-text">Time</label>
                         </div>
-                        <div class="input-field col s6">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
                             <input id="date" type="Date" name="date" class="datepicker black-text">
                             <label for="date"class="black-text">Date</label>
                         </div>
@@ -133,7 +136,7 @@
                             <label for="description" class="black-text">Description</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-waves">Create your event!</button>
+                    <button type="submit" class="btn btn-waves blue lighten-2">Create your event!</button>
                 </form>
             </div>
         </div>
@@ -154,14 +157,15 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select name ="category"class="black-text"> 
-                                    <option disabled selected>Choose your option</option>
+                                <select name ="category"class="black-text" value="<%= event.category %>"> 
+                                    <option selected disabled><%= event.category %></option>
                                     <option value="birthday" data-icon="http://i.imgur.com/4GysecW.jpg" class="circle">Birthday</option>
                                     <option value="potluck" data-icon="http://i.imgur.com/CRsR4tY.jpg" class="circle">Potluck</option>
                                     <option value="baby-shower" data-icon="http://i.imgur.com/3qH7cAD.jpg" class="circle">Baby Shower</option>
                                     <option value="holiday-party" data-icon="http://i.imgur.com/5A3k8wp.jpg" class="circle">Holiday Party</option>
                                     <option value="other" data-icon="http://i.imgur.com/YmExZrx.jpg" class="circle">Other</option>
                                 </select>
+                                <label for="category" class="black-text">Category</label>
                             </div>
                         </div>
                         <div class="row">
@@ -171,11 +175,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                                 <input id="time" type="text" name="time" class="timepicker black-text" value="<%=event.time%>">
                                 <label for="time"class="black-text">Time</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
                                 <input id="date" type="text" name="date" class="datepicker black-text" value="<%=event.date.toDateString()%>">
                                 <label for="date"class="black-text">Date</label>
                             </div>
@@ -188,14 +194,20 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <div class="col s12 m6 l6 center-align">
-                                    <button type="submit"class="btn">UPDATE</button>
-                    </form>
+                                <div class="col s2 left">
+                                    <button type="submit"class="btn blue lighten-2">UPDATE</button>
+                                </div>
+                                <div class="col s6 right">
+                                </form>
+                                <form action="/events/<%= event.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn halfway-fab red lighten-4 right" id="delete-button">Delete</button>
+                                </form>
                             </div>
-                        </div>    
-                    </div>        
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div>    
+        </div>        
         </div>
     </div>
 <% }) %>
@@ -205,39 +217,41 @@
 <% user.events.forEach(function(event) { %>
     <div id="modal<%=event._id%>show" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4 class="black-text"><%=event.title.toUpperCase()%></h4>        
+            <h4 class="black-text"><%=event.title.toUpperCase()%> 🎉</h4>        
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
-                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.title%></p>
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.title%></p>
                         <label for="title" class="black-text custom-font"><b>TITLE</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.category%></p>
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.category%></p>
                         <label for="category"class="black-text custom-font"><b>CATEGORY</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.location%></p>
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.location%></p>
                         <label for="location"class="black-text custom-font"><b>LOCATION</b></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <p class="black-text p-text-font ">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.time%> </p>
+                    <div class="input-field col s12">
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.time%> </p>
                         <label for="time"class="black-text"><b>TIME</b></label>
                     </div>
-                    <div class="input-field col s6">
-                        <p class="black-text p-text-font custom-font">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.date.toDateString()%> </p>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.date.toDateString()%> </p>
                         <label for="date" class="black-text"><b>DATE</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <p class="black-text p-text-font custom-left">&nbsp;&nbsp;&nbsp;&nbsp;<%=event.description%> </p>
+                        <p class="black-text p-text-font center"><br>&nbsp;&nbsp;&nbsp;&nbsp;<%=event.description%> </p>
                         <label for="description"class="black-text"><b>DESCRIPTION</b></label>
                     </div>
                 </div>       
@@ -253,6 +267,6 @@
 </script>
 
 
-<script async defer type="text/javascript" src="./../javascripts/app.js"></script>  
+<script src="./../../javascripts/app.js"></script> 
 
 <%- include('./../_partials/footer') %>

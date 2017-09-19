@@ -15,10 +15,10 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 require('./config/mail.js');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var events = require('./routes/events');
-var api = require('./routes/api');
 
 var app = express();
 
@@ -46,7 +46,6 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/', users);
 app.use('/events', events);
-app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -12,17 +12,11 @@
             "runtimeArgs": [
                 "--debug=5858"
             ],
-            "program": "${workspaceRoot}/server.js",
+            "program": "${workspaceRoot}/bin/www",
             "restart": true,
             "port": 5858,
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${file}"
         }
     ]
 }

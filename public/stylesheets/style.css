@@ -4,11 +4,18 @@ body {
   height: 700px;
   font-family: 'Josefin Sans', sans-serif !important;
 }
+
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
 .small-font {
   font-size:14px;
   padding:0;
   margin:0 auto;
 }
+
 html { 
   background: url('https://i.imgur.com/Lkfd2s5.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -16,6 +23,11 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
+#delete-button {
+  padding-top: 4px !important;
+}
+
 .half-container {
   margin-left: 4%;
 }
@@ -55,6 +67,11 @@ i.small {
   font-size: 1.3rem !important;
   float: left;
 }
+
+h4.black-text {
+  padding: 10px !important;
+}
+
 .blur-welcome {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;

@@ -12,30 +12,23 @@ function capitalize(string) {
 
 function index(req, res) {
     User.populate(req.user, 'events', function(err, user) {
-        if(err) console.log(err);
+        if(err) res.redirect('/');
         res.render('events/events', {user, events: user.events})
     });
 }
 
-function showEvent(req, res) {
-    req.user.event.findById(req.params.id, function(err, event) {
-        console.log(event);
-    });
-}
-
 function createEvent(req, res) {
-        let party = new Event(req.body);
-        party.eventId = req.user.id;
-        party.users.push(req.user)
-        party.save(function(err, party) {
-            console.log(party)
-            req.user.events.push(party);
-            req.user.save(function(err, user) {
-                if (err) {
-                    return res.redirect('/events');
-                } else {
-                    User.populate(req.user, 'events', function(err) {
-                        return res.render('events/events', {user:req.user});
+    let party = new Event(req.body);
+    party.eventId = req.user.id;
+    party.users.push(req.user)
+    party.save(function(err, party) {
+        req.user.events.push(party);
+        req.user.save(function(err, user) {
+            if (err) {
+                return res.redirect('/events');
+            } else {
+                User.populate(req.user, 'events', function(err) {
+                    return res.render('events/events', {user:req.user});
                 });
             }
         });
@@ -53,7 +46,7 @@ function updateEvent(req, res) {
         event.category = req.body.category;
         event.save(function (err) {
             if(err) {
-                console.log(err)
+                return res.redirect('/events');
             } else {
                 User.populate(req.user, 'events', function(err) {
                     return res.redirect('/events')
@@ -77,7 +70,7 @@ function deleteEvent(req, res) {
 
 function sendEmail(req,res) {
     User.populate(req.user, 'events', function(err, user) {
-        if(err) console.log(err);
+        if(err) return res.redirect('/events');
         var emailTemplate = new EmailTemplate(templateDir)
         Event.findById(req.params.id, function(err, event) {
             var info = {
@@ -100,7 +93,7 @@ function sendEmail(req,res) {
                 }
                 transporter.sendMail(mailOptions, function(err, info) {
                     if(err) {
-                        return console.log(err);
+                        return res.redirect('/events');
                     } else {
                         console.log('Message %s sent: %s', info.response, info.message);
                         res.redirect('/events');
@@ -113,7 +106,6 @@ function sendEmail(req,res) {
 }
 
 function prepEmail(req,res) {
-    console.log(req.params)
     return res.render('events/mail', {user:req.user, event:req.params.id})
 }
 
@@ -138,9 +130,10 @@ function confirmPage(req,res) {
                 event.users.push(req.user);
                 event.save(function(err, user) {
                     if (err) return res.redirect('/');
-                    console.log(event.users);
                     res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
                 });
+            } else {
+                return res.redirect('/');
             }
         });
     });
@@ -149,7 +142,6 @@ function confirmPage(req,res) {
 module.exports = {
     index,
     createEvent,
-    showEvent,
     updateEvent,
     deleteEvent,
     sendEmail,
