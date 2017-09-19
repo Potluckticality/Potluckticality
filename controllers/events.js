@@ -20,13 +20,11 @@ function newDish(req, res) {
 function deleteDish(req, res) {
     Event.findById(req.params.id, function(err, event) {
         event.dishes.id(req.params.dishId) && event.dishes.id(req.params.dishId).remove();
-
         event.save(function(err) {
             res.redirect('/');
         });
     });
 }
-
 
 module.exports = {
     allDishes,

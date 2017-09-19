@@ -4,30 +4,23 @@ body {
   height: 700px;
   font-family: 'Josefin Sans', sans-serif !important;
 }
-
-html {
-  height: 100%;
-  min-height: 100%;
-}
-
 .small-font {
   font-size:14px;
   padding:0;
   margin:0 auto;
 }
-
 html { 
+  height: 100%;
+  min-height: 100%;
   background: url('https://i.imgur.com/Lkfd2s5.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
 #delete-button {
   padding-top: 4px !important;
 }
-
 .half-container {
   margin-left: 4%;
 }
@@ -67,11 +60,9 @@ i.small {
   font-size: 1.3rem !important;
   float: left;
 }
-
 h4.black-text {
   padding: 10px !important;
 }
-
 .blur-welcome {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -150,8 +141,10 @@ a.align-button {
 @keyframes animation_1 {
   0%, 55.5555555555556% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1); opacity: 0; animation-timing-function:ease-in-out} 100% {transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,20,0,1); opacity:1;}
 }
-@media only screen and (max-width:1200px) and (min-width:992px) {
-
+@media only screen and (max-width:1280px) and (min-width:998px) {
+    a.align-button {
+      margin-right:37%;
+    }
 }
 @media (max-width:998px) {
     .btn-floating {

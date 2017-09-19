@@ -123,7 +123,6 @@ function homePage(req, res) {
  
 function confirmPage(req,res) {
     let user = req.user;
-    
     Event.findById(req.query.id, function(err, event) {
         Event.populate(event, 'users', function(err, event) {
             if (req.query.attending && !event.users.includes(req.user._id)) {
