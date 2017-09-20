@@ -41,7 +41,7 @@ input#description {
 }
 nav {
   /*background-color: #b0c4de !important;*/
-  background-color: rgb(236,30,48);
+  background-color: rgb(255,43,79);
   opacity: .87;
 }
 .dish {
@@ -69,6 +69,8 @@ h4.black-text {
   text-align: center;
   padding: 10px 10px;
   margin-top: 15%;
+  font-family: 'Rubik', sans-serif;
+  border-radius:15%;
 }
 .blur-event {
   background: rgba(0, 0, 0, 0.5);
