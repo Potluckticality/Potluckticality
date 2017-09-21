@@ -124,17 +124,22 @@ function homePage(req, res) {
 function confirmPage(req,res) {
     let user = req.user;
     Event.findById(req.query.id, function(err, event) {
-        Event.populate(event, 'users', function(err, event) {
-            if (req.query.attending && !event.users.includes(req.user._id)) {
-                event.users.push(req.user);
-                event.save(function(err, user) {
-                    if (err) return res.redirect('/');
-                    res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
-                });
-            } else {
-                return res.redirect('/');
-            }
-        });
+        var idx = event.users.findIndex(id => id.equals(req.user._id));
+        if (idx > -1) {
+            res.redirect('/')
+        } else {
+            Event.populate(event, 'users', function(err, event) {
+                if (req.query.attending && !event.users.includes(req.user._id)) {
+                    event.users.push(req.user);
+                    event.save(function(err, user) {
+                        if (err) return res.redirect('/');
+                        res.render('events/confirmPage', {user: req.user, event, attending: req.query})  
+                    });
+                } else {
+                    return res.redirect('/');
+                }
+            });
+        }
     });
 }
 
